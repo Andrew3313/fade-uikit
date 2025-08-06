@@ -1,0 +1,70 @@
+{
+	"name": "fade-uikit",
+	"private": false,
+	"version": "0.0.0",
+	"type": "module",
+	"description": "UI kit based on React and Vite",
+	"author": {
+		"name": "Andrew3313",
+		"email": "andystep333@gmail.com"
+	},
+	"license": "MIT",
+	"files": [
+		"dist"
+	],
+	"main": "./dist/fade-uikit.cjs.js",
+	"module": "./dist/fade-uikit.es.js",
+	"types": "./dist/fade-uikit.es.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/fade-uikit.es.js",
+			"require": "./dist/fade-uikit.cjs.js"
+		}
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview",
+		"lint-staged": "lint-staged",
+		"prepare": "husky install",
+		"type-check": "tsc -b --noEmit"
+	},
+	"dependencies": {
+		"clsx": "^2.1.1"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.30.1",
+		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
+		"@types/node": "^24.2.0",
+		"@types/react": "^19.1.8",
+		"@types/react-dom": "^19.1.6",
+		"@vitejs/plugin-react": "^4.6.0",
+		"eslint": "^9.30.1",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"eslint-plugin-react-refresh": "^0.4.20",
+		"globals": "^16.3.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.1.4",
+		"prettier": "^3.6.2",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1",
+		"typescript": "~5.8.3",
+		"typescript-eslint": "^8.35.1",
+		"vite": "^7.0.4",
+		"vite-plugin-css-injected-by-js": "^3.5.2",
+		"vite-plugin-dts": "^4.5.4"
+	},
+	"peerDependencies": {
+		"react": "*",
+		"react-dom": "*"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,json,css,scss,md}": [
+			"prettier --write"
+		],
+		"*.{ts,tsx}": [
+			"eslint --fix --report-unused-disable-directives --max-warnings=0"
+		]
+	}
+}
