@@ -12,6 +12,9 @@
 		rgba(255, 255, 255, 0) 100%
 	);
 
+	--fade-uikit-text-white: #ffffff;
+	--fade-uikit-text-white-soft: #ffffff99;
+
 	--fade-uikit-text-primary: #000000;
 	--fade-uikit-text-primary-soft: #1e1e1e99;
 
@@ -25,49 +28,36 @@
 	--fade-uikit-bg-orange: #db7831;
 	--fade-uikit-bg-aqua-green: #55d9ab;
 
-	--fade-uikit-bg-accent-blue:
-		rgba(217, 217, 217, 1),
-		linear-gradient(
-			135.58deg,
-			rgba(77, 200.90000915527344, 254, 1),
-			rgba(0, 101.54702758789062, 221.89903259277344, 1) 100%
-		);
-	--fade-uikit-bg-accent-green:
-		rgba(217, 217, 217, 1),
-		linear-gradient(
-			135.58deg,
-			rgba(48.57283020019531, 246.41827392578125, 71.65479278564453, 1),
-			rgba(0, 122.59615325927734, 0, 1) 100%
-		);
-	--fade-uikit-bg-accent-red:
-		rgba(217, 217, 217, 1),
-		linear-gradient(
-			135.58deg,
-			rgba(255, 104.20673370361328, 104.20673370361328, 1),
-			rgba(181.4423065185547, 0, 0, 1) 100%
-		);
-	--fade-uikit-bg-accent-yellow:
-		rgba(217, 217, 217, 1),
-		linear-gradient(
-			135.58deg,
-			rgba(255, 218.95672607421875, 100.52884674072266, 1),
-			rgba(221.89903259277344, 103.5528793334961, 0, 1) 100%
-		);
-	--fade-uikit-bg-accent-purple:
-		rgba(217, 217, 217, 1),
-		linear-gradient(
-			135.58deg,
-			rgba(189.10000610351562, 77, 254, 1),
-			rgba(102.49038696289062, 0, 161.82691955566406, 1) 100%
-		);
-	--fade-uikit-bg-accent-pink:
-		rgba(217, 217, 217, 1),
-		linear-gradient(
-			135.58deg,
-			rgba(255, 127.5, 223.125, 1),
-			rgba(125.0480728149414, 28.857250213623047, 118.6353530883789, 1)
-				100%
-		);
+	--fade-uikit-bg-accent-blue: linear-gradient(
+		135.58deg,
+		rgba(77, 200.90000915527344, 254, 1),
+		rgba(0, 101.54702758789062, 221.89903259277344, 1) 100%
+	);
+	--fade-uikit-bg-accent-green: linear-gradient(
+		135.58deg,
+		rgba(48.57283020019531, 246.41827392578125, 71.65479278564453, 1),
+		rgba(0, 122.59615325927734, 0, 1) 100%
+	);
+	--fade-uikit-bg-accent-red: linear-gradient(
+		135.58deg,
+		rgba(255, 104.20673370361328, 104.20673370361328, 1),
+		rgba(181.4423065185547, 0, 0, 1) 100%
+	);
+	--fade-uikit-bg-accent-yellow: linear-gradient(
+		135.58deg,
+		rgba(255, 218.95672607421875, 100.52884674072266, 1),
+		rgba(221.89903259277344, 103.5528793334961, 0, 1) 100%
+	);
+	--fade-uikit-bg-accent-purple: linear-gradient(
+		135.58deg,
+		rgba(189.10000610351562, 77, 254, 1),
+		rgba(102.49038696289062, 0, 161.82691955566406, 1) 100%
+	);
+	--fade-uikit-bg-accent-pink: linear-gradient(
+		135.58deg,
+		rgba(255, 127.5, 223.125, 1),
+		rgba(125.0480728149414, 28.857250213623047, 118.6353530883789, 1) 100%
+	);
 
 	--fade-uikit-shadow-sm:
 		inset 0 -2px 4px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.25);

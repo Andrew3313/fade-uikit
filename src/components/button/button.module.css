@@ -1,0 +1,68 @@
+.Button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	height: 4.7rem;
+	gap: 1rem;
+	color: var(--fade-uikit-text-primary);
+	background: var(--fade-uikit-foreground);
+	outline: none;
+	border-radius: 1rem;
+	border: none;
+	box-shadow: var(--fade-uikit-shadow-lg);
+	transition:
+		background-color 0.3s ease,
+		filter 0.2s ease;
+}
+
+.Button:disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.Button:hover:not(:disabled) {
+	filter: brightness(0.9);
+}
+
+.sm {
+	padding: 0.95rem 1.3rem;
+}
+
+.md {
+	padding: 1.8rem 2.2rem;
+}
+
+.lg {
+	padding: 1.05rem 4.675rem;
+}
+
+.pink {
+	background: var(--fade-uikit-bg-accent-pink);
+	color: var(--fade-uikit-text-white);
+}
+
+.green {
+	background: var(--fade-uikit-bg-accent-green);
+	color: var(--fade-uikit-text-white);
+}
+
+.yellow {
+	background: var(--fade-uikit-bg-accent-yellow);
+	color: var(--fade-uikit-text-white);
+}
+
+.blue {
+	background: var(--fade-uikit-bg-accent-blue);
+	color: var(--fade-uikit-text-white);
+}
+
+.purple {
+	background: var(--fade-uikit-bg-accent-purple);
+	color: var(--fade-uikit-text-white);
+}
+
+.red {
+	background: var(--fade-uikit-bg-accent-red);
+	color: var(--fade-uikit-text-white);
+}
