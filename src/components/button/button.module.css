@@ -28,14 +28,11 @@
 	filter: brightness(0.95);
 }
 
-.light {
-	color: var(--fade-uikit-black);
-	background: var(--fade-uikit-white) var(--fade-uikit-gradient-btn);
-}
-
-.dark {
-	color: var(--fade-uikit-white);
-	background: var(--fade-uikit-black-soft) var(--fade-uikit-gradient-btn);
+.outline {
+	background: transparent;
+	color: var(--fade-uikit-text-primary);
+	border: 1px solid var(--fade-uikit-text-primary);
+	box-shadow: none;
 }
 
 .sm {
@@ -48,6 +45,16 @@
 
 .lg {
 	padding: 1.05rem 4.675rem;
+}
+
+.light {
+	color: var(--fade-uikit-black);
+	background: var(--fade-uikit-white) var(--fade-uikit-gradient-btn);
+}
+
+.dark {
+	color: var(--fade-uikit-white);
+	background: var(--fade-uikit-black-soft) var(--fade-uikit-gradient-btn);
 }
 
 .pink {

@@ -23,8 +23,14 @@ export function Button({
 			className={clsx(
 				styles.button,
 				styles[size],
-				variant === ButtonVariants.ACCENT && styles[accentColor],
-				theme && ButtonVariants.DEFAULT && styles[theme],
+				{
+					[styles[variant]]: variant === ButtonVariants.OUTLINE,
+					[styles[accentColor]]: variant === ButtonVariants.ACCENT
+				},
+				theme &&
+					(variant === ButtonVariants.DEFAULT ||
+						variant === ButtonVariants.OUTLINE) &&
+					styles[theme],
 				className
 			)}
 			{...props}

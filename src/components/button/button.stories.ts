@@ -27,6 +27,13 @@ export const Default: Story = {
 	}
 }
 
+export const Outline: Story = {
+	args: {
+		children: 'Button',
+		variant: 'outline'
+	}
+}
+
 export const Disabled: Story = {
 	args: {
 		children: 'Button',

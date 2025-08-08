@@ -5,7 +5,8 @@ type Values<T> = T[keyof T]
 
 export const ButtonVariants = {
 	DEFAULT: 'default',
-	ACCENT: 'accent'
+	ACCENT: 'accent',
+	OUTLINE: 'outline'
 } as const
 
 export type TButtonVariant = Values<typeof ButtonVariants>
