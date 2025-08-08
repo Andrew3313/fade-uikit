@@ -1,4 +1,4 @@
-.Button {
+.button {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -6,7 +6,8 @@
 	height: 4.7rem;
 	gap: 1rem;
 	color: var(--fade-uikit-text-primary);
-	background: var(--fade-uikit-foreground);
+	backdrop-filter: blur(20px);
+	background: var(--fade-uikit-gradient-btn);
 	outline: none;
 	border-radius: 1rem;
 	border: none;
@@ -14,15 +15,27 @@
 	transition:
 		background-color 0.3s ease,
 		filter 0.2s ease;
+
+	-webkit-backdrop-filter: blur(20px);
 }
 
-.Button:disabled {
+.button:disabled {
 	pointer-events: none;
 	opacity: 0.5;
 }
 
-.Button:hover:not(:disabled) {
-	filter: brightness(0.9);
+.button:hover:not(:disabled) {
+	filter: brightness(0.95);
+}
+
+.light {
+	color: var(--fade-uikit-black);
+	background: var(--fade-uikit-white) var(--fade-uikit-gradient-btn);
+}
+
+.dark {
+	color: var(--fade-uikit-white);
+	background: var(--fade-uikit-black-soft) var(--fade-uikit-gradient-btn);
 }
 
 .sm {
@@ -38,31 +51,31 @@
 }
 
 .pink {
-	background: var(--fade-uikit-bg-accent-pink);
-	color: var(--fade-uikit-text-white);
+	background: var(--fade-uikit-gradient-pink);
+	color: var(--fade-uikit-white);
 }
 
 .green {
-	background: var(--fade-uikit-bg-accent-green);
-	color: var(--fade-uikit-text-white);
+	background: var(--fade-uikit-gradient-green);
+	color: var(--fade-uikit-white);
 }
 
 .yellow {
-	background: var(--fade-uikit-bg-accent-yellow);
-	color: var(--fade-uikit-text-white);
+	background: var(--fade-uikit-gradient-yellow);
+	color: var(--fade-uikit-white);
 }
 
 .blue {
-	background: var(--fade-uikit-bg-accent-blue);
-	color: var(--fade-uikit-text-white);
+	background: var(--fade-uikit-gradient-blue);
+	color: var(--fade-uikit-white);
 }
 
 .purple {
-	background: var(--fade-uikit-bg-accent-purple);
-	color: var(--fade-uikit-text-white);
+	background: var(--fade-uikit-gradient-purple);
+	color: var(--fade-uikit-white);
 }
 
 .red {
-	background: var(--fade-uikit-bg-accent-red);
-	color: var(--fade-uikit-text-white);
+	background: var(--fade-uikit-gradient-red);
+	color: var(--fade-uikit-white);
 }

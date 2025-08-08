@@ -10,3 +10,5 @@ export const AccentColors = {
 } as const
 
 export type TAccentColor = Values<typeof AccentColors>
+
+export type TComponentTheme = 'light' | 'dark'

@@ -1,4 +1,5 @@
-import type { TAccentColor } from '@/theme'
+import type { TAccentColor } from '@/types/theme'
+import type { TComponentTheme } from '@/types/theme'
 
 type Values<T> = T[keyof T]
 
@@ -19,6 +20,7 @@ export interface IButtonProps
 	children: React.ReactNode
 	variant?: TButtonVariant
 	accentColor?: TButtonAccentColor
+	theme?: TComponentTheme
 	type?: TButton
 	size?: TButtonSize
 	isDisabled?: boolean

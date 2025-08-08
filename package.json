@@ -15,11 +15,14 @@
 	"main": "./dist/fade-uikit.cjs.js",
 	"module": "./dist/fade-uikit.es.js",
 	"types": "./dist/fade-uikit.es.d.ts",
+	"style": "./dist/fade-uikit.css",
 	"exports": {
 		".": {
+			"style": "./dist/fade-uikit.css",
 			"import": "./dist/fade-uikit.es.js",
 			"require": "./dist/fade-uikit.cjs.js"
-		}
+		},
+		"./styles.css": "./dist/fade-uikit.css"
 	},
 	"scripts": {
 		"build": "tsc -b && vite build",
@@ -56,12 +59,11 @@
 		"typescript": "~5.8.3",
 		"typescript-eslint": "^8.35.1",
 		"vite": "^7.0.4",
-		"vite-plugin-css-injected-by-js": "^3.5.2",
 		"vite-plugin-dts": "^4.5.4"
 	},
 	"peerDependencies": {
-		"react": "*",
-		"react-dom": "*"
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx,json,css,scss,md}": [

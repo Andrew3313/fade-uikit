@@ -1,7 +1,6 @@
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 import dts from 'vite-plugin-dts'
 
 export default defineConfig({
@@ -18,7 +17,7 @@ export default defineConfig({
 			formats: ['es', 'cjs']
 		},
 		rollupOptions: {
-			external: ['react', 'react-dom'],
+			external: ['react', 'react-dom', 'react/jsx-runtime'],
 			output: {
 				globals: {
 					react: 'React',
@@ -28,8 +27,9 @@ export default defineConfig({
 		}
 	},
 	plugins: [
-		react(),
-		cssInjectedByJsPlugin(),
+		react({
+			jsxRuntime: 'automatic'
+		}),
 		dts({
 			tsconfigPath: './tsconfig.build.json',
 			insertTypesEntry: true

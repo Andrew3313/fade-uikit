@@ -1,6 +1,6 @@
 import { Button } from './button'
 import { ButtonVariants } from './button.props'
-import { AccentColors } from '@/theme'
+import { AccentColors } from '@/types/theme'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta: Meta<typeof Button> = {
@@ -12,7 +12,8 @@ const meta: Meta<typeof Button> = {
 		accentColor: {
 			control: 'select',
 			options: Object.values(AccentColors)
-		}
+		},
+		theme: { control: 'select', options: ['light', 'dark'] }
 	}
 }
 
@@ -30,6 +31,20 @@ export const Disabled: Story = {
 	args: {
 		children: 'Button',
 		isDisabled: true
+	}
+}
+
+export const Light: Story = {
+	args: {
+		children: 'Button',
+		theme: 'light'
+	}
+}
+
+export const Dark: Story = {
+	args: {
+		children: 'Button',
+		theme: 'dark'
 	}
 }
 
