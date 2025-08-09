@@ -5,9 +5,7 @@
 	cursor: pointer;
 	height: 4.7rem;
 	gap: 1rem;
-	color: var(--fade-uikit-text-primary);
 	backdrop-filter: blur(20px);
-	background: var(--fade-uikit-gradient-btn);
 	outline: none;
 	border-radius: 1rem;
 	border: none;
@@ -28,13 +26,7 @@
 	filter: brightness(0.95);
 }
 
-.outline {
-	background: transparent;
-	color: var(--fade-uikit-text-primary);
-	border: 1px solid var(--fade-uikit-text-primary);
-	box-shadow: none;
-}
-
+/* Размеры */
 .sm {
 	padding: 0.95rem 1.3rem;
 }
@@ -47,42 +39,88 @@
 	padding: 1.05rem 4.675rem;
 }
 
-.light {
+/* Базовые стили для outline */
+.outline {
+	box-shadow: none;
+	border: 1px solid;
+	border-color: var(--fade-uikit-white);
+	color: var(--fade-uikit-white);
+}
+
+/* outline + белая заливка */
+.outline.white-fill {
+	border-color: var(--fade-uikit-black);
+	color: var(--fade-uikit-black);
+}
+
+/* outline + auto-theming */
+.outline.auto-theming {
+	border-color: var(--fade-uikit-text-primary);
+	color: var(--fade-uikit-text-primary);
+}
+
+/* outline + auto-theming + любой accent */
+.outline.auto-theming[class*='-accent'] {
+	border-color: var(--fade-uikit-text-primary);
+	color: var(--fade-uikit-text-primary);
+}
+
+/* outline + black-fill или accent (без auto-theming) */
+.outline.black-fill,
+.outline.pink-accent,
+.outline.green-accent,
+.outline.yellow-accent,
+.outline.blue-accent,
+.outline.purple-accent,
+.outline.red-accent {
+	border-color: var(--fade-uikit-white);
+	color: var(--fade-uikit-white);
+}
+
+/* Auto-theming (без outline) */
+.auto-theming {
+	color: var(--fade-uikit-text-primary);
+	background: var(--fade-uikit-gradient-btn);
+}
+
+/* Заливки без auto-theming */
+.white-fill {
 	color: var(--fade-uikit-black);
 	background: var(--fade-uikit-white) var(--fade-uikit-gradient-btn);
 }
 
-.dark {
+.black-fill {
 	color: var(--fade-uikit-white);
 	background: var(--fade-uikit-black-soft) var(--fade-uikit-gradient-btn);
 }
 
-.pink {
+/* Акцентные цвета */
+.pink-accent {
 	background: var(--fade-uikit-gradient-pink);
 	color: var(--fade-uikit-white);
 }
 
-.green {
+.green-accent {
 	background: var(--fade-uikit-gradient-green);
 	color: var(--fade-uikit-white);
 }
 
-.yellow {
+.yellow-accent {
 	background: var(--fade-uikit-gradient-yellow);
 	color: var(--fade-uikit-white);
 }
 
-.blue {
+.blue-accent {
 	background: var(--fade-uikit-gradient-blue);
 	color: var(--fade-uikit-white);
 }
 
-.purple {
+.purple-accent {
 	background: var(--fade-uikit-gradient-purple);
 	color: var(--fade-uikit-white);
 }
 
-.red {
+.red-accent {
 	background: var(--fade-uikit-gradient-red);
 	color: var(--fade-uikit-white);
 }

@@ -1,6 +1,6 @@
 import { Button } from './button'
 import { ButtonVariants } from './button.props'
-import { AccentColors } from '@/types/theme'
+import { AccentColors } from '@/lib'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta: Meta<typeof Button> = {
@@ -9,11 +9,8 @@ const meta: Meta<typeof Button> = {
 	tags: ['autodocs'],
 	argTypes: {
 		variant: { control: 'select', options: Object.values(ButtonVariants) },
-		accentColor: {
-			control: 'select',
-			options: Object.values(AccentColors)
-		},
-		theme: { control: 'select', options: ['light', 'dark'] }
+		fill: { control: 'select', options: ['white-fill', 'black-fill'] },
+		accentColor: { control: 'select', options: Object.values(AccentColors) }
 	}
 }
 
@@ -41,65 +38,72 @@ export const Disabled: Story = {
 	}
 }
 
-export const Light: Story = {
+export const AutoTheming: Story = {
 	args: {
 		children: 'Button',
-		theme: 'light'
+		autoTheming: true
 	}
 }
 
-export const Dark: Story = {
+export const WhiteFill: Story = {
 	args: {
 		children: 'Button',
-		theme: 'dark'
+		fill: 'white-fill'
+	}
+}
+
+export const BlackFill: Story = {
+	args: {
+		children: 'Button',
+		fill: 'black-fill'
 	}
 }
 
 export const AccentBlue: Story = {
 	args: {
 		children: 'Button',
-		variant: 'accent',
-		accentColor: 'blue'
+		accent: true,
+		accentColor: 'blue-accent'
 	}
 }
 
 export const AccentPink: Story = {
 	args: {
 		children: 'Button',
-		variant: 'accent',
-		accentColor: 'pink'
+		accent: true,
+		accentColor: 'pink-accent'
 	}
 }
 
 export const AccentGreen: Story = {
 	args: {
 		children: 'Button',
-		variant: 'accent',
-		accentColor: 'green'
+		accent: true,
+		accentColor: 'green-accent'
 	}
 }
 
 export const AccentYellow: Story = {
 	args: {
 		children: 'Button',
-		variant: 'accent',
-		accentColor: 'yellow'
+		accent: true,
+		accentColor: 'yellow-accent'
 	}
 }
 
 export const AccentPurple: Story = {
 	args: {
 		children: 'Button',
-		variant: 'accent',
-		accentColor: 'purple'
+		accent: true,
+		accentColor: 'purple-accent'
 	}
 }
 
 export const AccentRed: Story = {
 	args: {
 		children: 'Button',
-		variant: 'accent',
-		accentColor: 'red'
+		accent: true,
+		accentColor: 'red-accent'
 	}
 }
 
