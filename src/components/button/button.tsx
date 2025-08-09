@@ -23,14 +23,9 @@ export function Button({
 			className={clsx(
 				styles.button,
 				styles[size],
-				{
-					[styles[variant]]: variant === ButtonVariants.OUTLINE,
-					[styles[accentColor]]: variant === ButtonVariants.ACCENT
-				},
-				theme &&
-					(variant === ButtonVariants.DEFAULT ||
-						variant === ButtonVariants.OUTLINE) &&
-					styles[theme],
+				variant === ButtonVariants.ACCENT && styles[accentColor],
+				variant === ButtonVariants.OUTLINE && styles[variant],
+				theme && variant === ButtonVariants.DEFAULT && styles[theme],
 				className
 			)}
 			{...props}
