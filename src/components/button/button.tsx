@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 export function Button({
 	type = 'button',
-	size = 'md',
+	size = 'sm',
 	isDisabled = false,
 	variant = ButtonVariants.DEFAULT,
 	autoTheming = false,

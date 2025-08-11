@@ -1,0 +1,116 @@
+.switch {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.switch-disabled {
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+.switch:hover:not(.switch-disabled) {
+	filter: brightness(0.95);
+}
+
+.input {
+	display: none;
+}
+
+.track {
+	position: relative;
+	background: var(--fade-uikit-gray);
+	border-radius: var(--fade-uikit-radius-round);
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+}
+
+/* Градиентный слой */
+.track::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: var(--switch-active-bg);
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+	z-index: 0;
+}
+
+/* Thumb */
+.track::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	border-radius: var(--fade-uikit-radius-round);
+	background: var(--fade-uikit-white);
+	transition: all 0.3s ease-in-out;
+	z-index: 1;
+}
+
+.switch.sm .track {
+	width: 2.9rem;
+	height: 1.64rem;
+}
+.switch.sm .track::after {
+	width: 1.45rem;
+	height: 1.45rem;
+}
+
+.switch.md .track {
+	width: 3.6rem;
+	height: 2rem;
+}
+.switch.md .track::after {
+	width: 1.81rem;
+	height: 1.81rem;
+}
+
+.switch.lg .track {
+	width: 4.4rem;
+	height: 2.4rem;
+}
+.switch.lg .track::after {
+	width: 2.21rem;
+	height: 2.21rem;
+}
+
+.switch.blue-accent .track {
+	--switch-active-bg: var(--fade-uikit-gradient-blue);
+}
+.switch.green-accent .track {
+	--switch-active-bg: var(--fade-uikit-gradient-green);
+}
+.switch.red-accent .track {
+	--switch-active-bg: var(--fade-uikit-gradient-red);
+}
+.switch.yellow-accent .track {
+	--switch-active-bg: var(--fade-uikit-gradient-yellow);
+}
+.switch.purple-accent .track {
+	--switch-active-bg: var(--fade-uikit-gradient-purple);
+}
+.switch.pink-accent .track {
+	--switch-active-bg: var(--fade-uikit-gradient-pink);
+}
+
+/* При включении плавно показываем градиент */
+.input:checked + .track::before {
+	opacity: 1;
+}
+
+/* Перемещение thumb */
+.input:checked + .track::after {
+	left: calc(100% - var(--thumb-size));
+}
+
+.switch.sm .input:checked + .track::after {
+	--thumb-size: 1.45rem;
+}
+.switch.md .input:checked + .track::after {
+	--thumb-size: 1.81rem;
+}
+.switch.lg .input:checked + .track::after {
+	--thumb-size: 2.21rem;
+}

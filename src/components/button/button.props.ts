@@ -24,7 +24,7 @@ export interface IButtonProps
 	size?: TButtonSize
 	accentColor?: TAccentColor
 	fill?: TButtonFill
-	autoTheming: boolean
+	autoTheming?: boolean
 	accent?: boolean
 	isDisabled?: boolean
 	className?: string
