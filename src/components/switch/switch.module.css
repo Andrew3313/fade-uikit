@@ -22,7 +22,7 @@
 	background: var(--fade-uikit-gray);
 	border-radius: var(--fade-uikit-radius-round);
 	overflow: hidden;
-	transition: all 0.3s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 /* Градиентный слой */
@@ -32,7 +32,7 @@
 	inset: 0;
 	background: var(--switch-active-bg);
 	opacity: 0;
-	transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.2s ease-in-out;
 	z-index: 0;
 }
 
@@ -45,7 +45,7 @@
 	transform: translateY(-50%);
 	border-radius: var(--fade-uikit-radius-round);
 	background: var(--fade-uikit-white);
-	transition: all 0.3s ease-in-out;
+	transition: all 0.2s ease-in-out;
 	z-index: 1;
 }
 

@@ -2,6 +2,8 @@ import { Button } from './button'
 import { ButtonVariants } from './button.props'
 import { AccentColors } from '@/lib'
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { ArrowRight, ArrowLeft } from 'lucide-react'
+import { createElement } from 'react'
 
 const meta: Meta<typeof Button> = {
 	title: 'Components/Button',
@@ -10,7 +12,12 @@ const meta: Meta<typeof Button> = {
 	argTypes: {
 		variant: { control: 'select', options: Object.values(ButtonVariants) },
 		fill: { control: 'select', options: ['white-fill', 'black-fill'] },
-		accentColor: { control: 'select', options: Object.values(AccentColors) }
+		accentColor: {
+			control: 'select',
+			options: Object.values(AccentColors)
+		},
+		startIcon: { control: false },
+		endIcon: { control: false }
 	}
 }
 
@@ -18,7 +25,7 @@ export default meta
 
 type Story = StoryObj<typeof Button>
 
-export const Default: Story = {
+export const Solid: Story = {
 	args: {
 		children: 'Button'
 	}
@@ -31,6 +38,13 @@ export const Outline: Story = {
 	}
 }
 
+export const Ghost: Story = {
+	args: {
+		children: 'Button',
+		variant: 'ghost'
+	}
+}
+
 export const Disabled: Story = {
 	args: {
 		children: 'Button',
@@ -38,10 +52,59 @@ export const Disabled: Story = {
 	}
 }
 
-export const AutoTheming: Story = {
+export const Loading: Story = {
 	args: {
 		children: 'Button',
-		autoTheming: true
+		isLoading: true
+	}
+}
+
+export const Small: Story = {
+	args: {
+		children: 'Button',
+		size: 'sm'
+	}
+}
+
+export const Medium: Story = {
+	args: {
+		children: 'Button',
+		size: 'md'
+	}
+}
+
+export const Large: Story = {
+	args: {
+		children: 'Button',
+		size: 'lg'
+	}
+}
+
+export const Rounded: Story = {
+	args: {
+		children: 'Button',
+		rounded: true
+	}
+}
+
+export const FullWidth: Story = {
+	args: {
+		children: 'Button',
+		fullWidth: true
+	}
+}
+
+export const WithLeftIcon: Story = {
+	args: {
+		children: 'Button',
+		startIcon: createElement(ArrowLeft)
+	}
+}
+
+export const WithRightIcon: Story = {
+	args: {
+		children: 'Button',
+		endIcon: createElement(ArrowRight)
 	}
 }
 
@@ -104,26 +167,5 @@ export const AccentRed: Story = {
 		children: 'Button',
 		accent: true,
 		accentColor: 'red-accent'
-	}
-}
-
-export const Small: Story = {
-	args: {
-		children: 'Button',
-		size: 'sm'
-	}
-}
-
-export const Medium: Story = {
-	args: {
-		children: 'Button',
-		size: 'md'
-	}
-}
-
-export const Large: Story = {
-	args: {
-		children: 'Button',
-		size: 'lg'
 	}
 }

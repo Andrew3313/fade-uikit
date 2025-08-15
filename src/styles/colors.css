@@ -1,8 +1,13 @@
 :root {
-	--fade-uikit-background: #ffffff;
+	--fade-uikit-white: #ffffff;
 
-	--fade-uikit-text-primary: #000000;
-	--fade-uikit-text-secondary: #1e1e1e99;
+	--fade-uikit-black: #000000;
+	--fade-uikit-almost-black: #0a0a0a;
+	--fade-uikit-black-soft: #151515;
+	--fade-uikit-black-charcoal: #1e1e1e99;
+
+	--fade-uikit-gray: #4c4c4c;
+	--fade-uikit-gray-soft: #ffffff99;
 
 	--fade-uikit-green: #42a858;
 	--fade-uikit-red: #b72828;
@@ -10,10 +15,6 @@
 	--fade-uikit-pink: #b155c8;
 	--fade-uikit-orange: #db7831;
 	--fade-uikit-aqua-green: #55d9ab;
-	--fade-uikit-black: #000000;
-	--fade-uikit-black-soft: #151515;
-	--fade-uikit-white: #ffffff;
-	--fade-uikit-gray: #4c4c4c;
 
 	--fade-uikit-gradient-btn: linear-gradient(
 		134.42deg,
@@ -62,15 +63,4 @@
 	--fade-uikit-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.25);
 	--fade-uikit-shadow-lg:
 		0 2px 4px rgba(0, 0, 0, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.25);
-}
-
-html.dark,
-html[data-theme='dark'],
-html[data-mode='dark'],
-html[data-color-scheme='dark'],
-html.theme-dark {
-	--fade-uikit-background: #151515;
-
-	--fade-uikit-text-primary: #ffffff;
-	--fade-uikit-text-secondary: #ffffff99;
 }

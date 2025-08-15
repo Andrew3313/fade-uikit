@@ -1,8 +1,9 @@
 import type { AddPostfix, TAccentColor, TColor, Values } from '@/lib'
 
 export const ButtonVariants = {
-	DEFAULT: 'default',
-	OUTLINE: 'outline'
+	SOLID: 'solid',
+	OUTLINE: 'outline',
+	GHOST: 'ghost'
 } as const
 
 export type TButtonVariant = Values<typeof ButtonVariants>
@@ -13,19 +14,22 @@ export type TButtonFill = AddPostfix<
 >
 
 export type TButtonSize = 'sm' | 'md' | 'lg'
-
-export type TButton = 'button' | 'reset' | 'submit'
+export type TButtonType = 'button' | 'reset' | 'submit'
 
 export interface IButtonProps
 	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	children: React.ReactNode
-	type?: TButton
+	type?: TButtonType
 	variant?: TButtonVariant
 	size?: TButtonSize
 	accentColor?: TAccentColor
 	fill?: TButtonFill
-	autoTheming?: boolean
 	accent?: boolean
 	isDisabled?: boolean
+	isLoading?: boolean
+	fullWidth?: boolean
+	rounded?: boolean
 	className?: string
+	startIcon?: React.ReactNode
+	endIcon?: React.ReactNode
 }

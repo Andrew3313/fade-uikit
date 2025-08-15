@@ -7,7 +7,11 @@ const meta: Meta<typeof Switch> = {
 	title: 'Components/Switch',
 	tags: ['autodocs'],
 	argTypes: {
-		accentColor: { control: 'select', options: Object.values(AccentColors) }
+		accentColor: {
+			control: 'select',
+			options: Object.values(AccentColors)
+		},
+		onChange: { control: false }
 	}
 }
 
@@ -30,6 +34,24 @@ export const Active: Story = {
 export const Disabled: Story = {
 	args: {
 		isDisabled: true
+	}
+}
+
+export const Small: Story = {
+	args: {
+		size: 'sm'
+	}
+}
+
+export const Medium: Story = {
+	args: {
+		size: 'md'
+	}
+}
+
+export const Large: Story = {
+	args: {
+		size: 'lg'
 	}
 }
 
@@ -72,23 +94,5 @@ export const AccentRed: Story = {
 	args: {
 		checked: true,
 		accentColor: 'red-accent'
-	}
-}
-
-export const Small: Story = {
-	args: {
-		size: 'sm'
-	}
-}
-
-export const Medium: Story = {
-	args: {
-		size: 'md'
-	}
-}
-
-export const Large: Story = {
-	args: {
-		size: 'lg'
 	}
 }
