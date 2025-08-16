@@ -4,6 +4,7 @@ import { AccentColors } from '@/lib'
 import clsx from 'clsx'
 
 export function Button({
+	children,
 	variant = ButtonVariants.SOLID,
 	accentColor = AccentColors.BLUE,
 	type = 'button',
@@ -14,7 +15,6 @@ export function Button({
 	accent = false,
 	fullWidth = false,
 	rounded = false,
-	children,
 	className,
 	startIcon,
 	endIcon,

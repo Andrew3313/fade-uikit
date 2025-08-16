@@ -7,7 +7,7 @@
 	gap: 1rem;
 	backdrop-filter: blur(20px);
 	outline: none;
-	border-radius: var(--fade-uikit-radius-sm);
+	border-radius: var(--fade-uikit-radius-md);
 	border: none;
 	box-shadow: var(--fade-uikit-shadow-lg);
 	position: relative;
@@ -73,18 +73,23 @@
 .pink-accent {
 	background: var(--fade-uikit-gradient-pink);
 }
+
 .green-accent {
 	background: var(--fade-uikit-gradient-green);
 }
+
 .yellow-accent {
 	background: var(--fade-uikit-gradient-yellow);
 }
+
 .blue-accent {
 	background: var(--fade-uikit-gradient-blue);
 }
+
 .purple-accent {
 	background: var(--fade-uikit-gradient-purple);
 }
+
 .red-accent {
 	background: var(--fade-uikit-gradient-red);
 }
@@ -95,7 +100,7 @@
 }
 
 .rounded {
-	border-radius: var(--fade-uikit-radius-round);
+	border-radius: var(--fade-uikit-radius-full);
 }
 
 .loading {
@@ -127,7 +132,7 @@
 }
 
 .button:hover:not(:disabled) {
-	filter: brightness(0.95);
+	filter: brightness(1.05);
 }
 
 .button:active:not(:disabled) {

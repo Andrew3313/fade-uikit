@@ -1,0 +1,118 @@
+.badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.1rem;
+	box-shadow: var(--fade-uikit-shadow-md);
+	color: var(--fade-uikit-white);
+	background: var(--fade-uikit-gradient-label);
+	font-weight: 500;
+	padding: 0.25rem 1.5rem;
+	line-height: 100%;
+}
+
+.badge:hover {
+	filter: brightness(1.05);
+}
+
+.label {
+	border-radius: var(--fade-uikit-radius-md) 0 var(--fade-uikit-radius-md) 0;
+}
+
+/* Размеры */
+.sm {
+	font-size: 1.1rem;
+}
+
+.md {
+	font-size: 1.3rem;
+}
+
+.lg {
+	font-size: 1.5rem;
+}
+
+.rounded {
+	border-radius: var(--fade-uikit-radius-full);
+}
+
+/* Скругления (Только для default) */
+.default.radius-sm {
+	border-radius: var(--fade-uikit-radius-sm);
+}
+
+.default.radius-md {
+	border-radius: var(--fade-uikit-radius-md);
+}
+
+.default.radius-lg {
+	border-radius: var(--fade-uikit-radius-lg);
+}
+
+/* Заливки */
+.green-fill {
+	background: var(--fade-uikit-green);
+}
+
+.red-fill {
+	background: var(--fade-uikit-red);
+}
+
+.blue-fill {
+	background: var(--fade-uikit-blue);
+}
+
+.pink-fill {
+	background: var(--fade-uikit-pink);
+}
+
+.orange-fill {
+	background: var(--fade-uikit-orange);
+}
+
+.aqua-green-fill {
+	background: var(--fade-uikit-aqua-green);
+}
+
+.black-fill {
+	background: var(--fade-uikit-black-soft);
+}
+
+.white-fill {
+	color: var(--fade-uikit-black);
+	background: var(--fade-uikit-white);
+}
+
+.transparent-fill {
+	color: inherit;
+	background: transparent;
+}
+
+/* Акцентные цвета */
+[class*='-accent'] {
+	color: var(--fade-uikit-white);
+}
+
+.pink-accent {
+	background: var(--fade-uikit-gradient-pink);
+}
+
+.green-accent {
+	background: var(--fade-uikit-gradient-green);
+}
+
+.yellow-accent {
+	background: var(--fade-uikit-gradient-yellow);
+}
+
+.blue-accent {
+	background: var(--fade-uikit-gradient-blue);
+}
+
+.purple-accent {
+	background: var(--fade-uikit-gradient-purple);
+}
+
+.red-accent {
+	background: var(--fade-uikit-gradient-red);
+}

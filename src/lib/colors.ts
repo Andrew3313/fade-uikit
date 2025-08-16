@@ -6,8 +6,6 @@ export const Colors = {
 	BLUE: 'blue',
 	PINK: 'pink',
 	ORANGE: 'orange',
-	YELLOW: 'yellow',
-	PURPLE: 'purple',
 	AQUA_GREEN: 'aqua-green',
 	BLACK: 'black',
 	WHITE: 'white'

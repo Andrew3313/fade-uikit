@@ -4,10 +4,10 @@ import { AccentColors } from '@/lib'
 import clsx from 'clsx'
 
 export const Switch = ({
+	checked,
 	accentColor = AccentColors.BLUE,
 	size = 'md',
 	isDisabled = false,
-	checked,
 	onChange,
 	name,
 	className
