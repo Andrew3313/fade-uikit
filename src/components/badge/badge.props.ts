@@ -1,11 +1,4 @@
-import type {
-	AddPostfix,
-	AddPrefix,
-	TAccentColor,
-	TColor,
-	TSize,
-	Values
-} from '@/lib'
+import type { AddPostfix, TAccentColor, TColor, Values } from '@/lib'
 
 export const BadgeVariants = {
 	DEFAULT: 'default',
@@ -16,12 +9,14 @@ export type TBadgeVariant = Values<typeof BadgeVariants>
 
 export type TBadgeFill = AddPostfix<TColor | 'transparent', '-fill'>
 
-export type TRadius = AddPrefix<TSize, 'radius-'>
+export type TBadgeSize = 'sm' | 'md' | 'lg'
+
+export type TRadius = 'radius-sm' | 'radius-md' | 'radius-lg'
 
 export interface IBadgeProps {
 	children: React.ReactNode
 	variant?: TBadgeVariant
-	size?: TSize
+	size?: TBadgeSize
 	radius?: TRadius
 	fill?: TBadgeFill
 	accentColor?: TAccentColor

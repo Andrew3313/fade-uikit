@@ -1,3 +1,4 @@
-export { Button } from './button/button'
-export { Switch } from './switch/switch'
-export { Badge } from './badge/badge'
+export * from './badge'
+export * from './button'
+export * from './switch'
+export * from './scroll-area'

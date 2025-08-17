@@ -15,9 +15,9 @@ export function Button({
 	accent = false,
 	fullWidth = false,
 	rounded = false,
-	className,
 	startIcon,
 	endIcon,
+	className,
 	...props
 }: IButtonProps) {
 	return (

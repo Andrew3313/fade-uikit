@@ -1,0 +1,44 @@
+.scrollArea :global(.simplebar-track .simplebar-scrollbar)::before {
+	content: '';
+	display: block;
+	border-radius: var(--thumb-radius);
+	background: var(--thumb-color);
+}
+
+.scrollArea :global(.simplebar-track) {
+	background: var(--track-color);
+	border-radius: var(--track-radius);
+}
+
+.scrollArea :global(.simplebar-track.simplebar-vertical) {
+	width: var(--scroll-size);
+}
+
+.scrollArea :global(.simplebar-track.simplebar-horizontal) {
+	height: var(--scroll-size);
+}
+
+/* Акцентные цвета */
+.blue-accent {
+	--thumb-color: var(--fade-uikit-gradient-blue);
+}
+
+.green-accent {
+	--thumb-color: var(--fade-uikit-gradient-green);
+}
+
+.red-accent {
+	--thumb-color: var(--fade-uikit-gradient-red);
+}
+
+.yellow-accent {
+	--thumb-color: var(--fade-uikit-gradient-yellow);
+}
+
+.purple-accent {
+	--thumb-color: var(--fade-uikit-gradient-purple);
+}
+
+.pink-accent {
+	--thumb-color: var(--fade-uikit-gradient-pink);
+}

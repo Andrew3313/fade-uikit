@@ -1,4 +1,4 @@
-import type { AddPostfix, TAccentColor, TColor, TSize, Values } from '@/lib'
+import type { AddPostfix, TAccentColor, TColor, Values } from '@/lib'
 
 export const ButtonVariants = {
 	SOLID: 'solid',
@@ -15,12 +15,14 @@ export type TButtonFill = AddPostfix<
 
 export type TButtonType = 'button' | 'reset' | 'submit'
 
+export type TButtonSize = 'sm' | 'md' | 'lg'
+
 export interface IButtonProps
 	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	children: React.ReactNode
 	type?: TButtonType
 	variant?: TButtonVariant
-	size?: TSize
+	size?: TButtonSize
 	accentColor?: TAccentColor
 	fill?: TButtonFill
 	accent?: boolean
@@ -28,7 +30,7 @@ export interface IButtonProps
 	isLoading?: boolean
 	fullWidth?: boolean
 	rounded?: boolean
-	className?: string
 	startIcon?: React.ReactNode
 	endIcon?: React.ReactNode
+	className?: string
 }
