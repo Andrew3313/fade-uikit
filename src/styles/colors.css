@@ -16,7 +16,7 @@
 	--fade-uikit-orange: #db7831;
 	--fade-uikit-aqua-green: #55d9ab;
 
-	--fade-uikit-gradient-btn: linear-gradient(
+	--fade-uikit-gradient-component: linear-gradient(
 		134.42deg,
 		rgba(217, 217, 217, 0.1),
 		rgba(255, 255, 255, 0) 100%

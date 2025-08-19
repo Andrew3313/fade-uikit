@@ -39,7 +39,7 @@
 
 /* Варианты */
 .solid {
-	background: var(--fade-uikit-gradient-btn);
+	background: var(--fade-uikit-gradient-component);
 }
 
 .outline {
@@ -50,7 +50,7 @@
 
 .ghost {
 	color: inherit;
-	background: var(--fade-uikit-gradient-btn);
+	background: var(--fade-uikit-gradient-component);
 	border: none;
 }
 
