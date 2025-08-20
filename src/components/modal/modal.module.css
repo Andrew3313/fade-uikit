@@ -1,0 +1,182 @@
+.modal {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	padding: 1.7rem 1.5rem;
+	cursor: default;
+	border-radius: var(--fade-uikit-radius-md);
+	background: var(--fade-uikit-gradient-component);
+	box-shadow: var(--fade-uikit-shadow-sm);
+	color: var(--fade-uikit-white);
+	font-size: 1.6rem;
+	font-weight: 200;
+	max-height: 80vh;
+	z-index: var(--fade-uikit-modal-z-index);
+
+	will-change: transform, opacity;
+	opacity: 0;
+	transform: scale(0.95);
+	transition:
+		transform 0.3s ease,
+		opacity 0.3s ease;
+}
+
+.content-wrapper {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	width: 100%;
+	min-height: 0;
+}
+
+.close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border-radius: var(--fade-uikit-radius-md);
+	border: none;
+	width: 4.7rem;
+	height: 4.7rem;
+	position: absolute;
+	right: 0;
+	bottom: calc(100% + 0.5rem);
+	z-index: 10;
+	cursor: pointer;
+}
+
+.close-right {
+	top: 0;
+	left: calc(100% + 0.5rem);
+	bottom: auto;
+	right: auto;
+}
+
+.close:hover {
+	filter: brightness(0.95);
+}
+
+.close:focus {
+	outline: none;
+}
+
+.close:focus-visible {
+	outline: 1px solid #fff;
+}
+
+/* Размеры */
+.sm {
+	max-width: 30rem;
+	min-height: 15rem;
+}
+
+.md {
+	max-width: 54rem;
+	min-height: 20rem;
+}
+
+.lg {
+	max-width: 70rem;
+	min-height: 25rem;
+}
+
+.full {
+	width: 100%;
+	min-height: 25rem;
+}
+
+.content {
+	width: fit-content;
+	height: fit-content;
+	max-width: 90vw;
+}
+
+/* Состояния */
+.opened {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.closing {
+	opacity: 0;
+	transform: scale(0.95);
+}
+
+/* Анимации */
+.center {
+	transform: scale(0.95);
+}
+
+.center.opened {
+	transform: scale(1);
+}
+
+.center.closing {
+	transform: scale(0.95);
+}
+
+.top {
+	transform: translateY(-100%);
+}
+
+.top.opened {
+	transform: translateY(0);
+}
+
+.top.closing {
+	transform: translateY(-100%);
+}
+
+.bottom {
+	transform: translateY(100%);
+}
+
+.bottom.opened {
+	transform: translateY(0);
+}
+
+.bottom.closing {
+	transform: translateY(100%);
+}
+
+.left {
+	transform: translateX(-100%);
+}
+
+.left.opened {
+	transform: translateX(0);
+}
+
+.left.closing {
+	transform: translateX(-100%);
+}
+
+.right {
+	transform: translateX(100%);
+}
+
+.right.opened {
+	transform: translateX(0);
+}
+
+.right.closing {
+	transform: translateX(100%);
+}
+
+/* Секции */
+.header {
+	margin-bottom: 1rem;
+	font-weight: 500;
+}
+
+.body {
+	flex: 1;
+	margin-bottom: 1rem;
+}
+
+.footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 1rem;
+}

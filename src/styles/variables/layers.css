@@ -1,0 +1,4 @@
+:root {
+	--fade-uikit-overlay-z-index: 1000;
+	--fade-uikit-modal-z-index: 1001;
+}

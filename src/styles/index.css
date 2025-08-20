@@ -1,14 +1,12 @@
-@import url('./sizes.css');
-@import url('./colors.css');
-
-*,
-*::before,
-*::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+@import url('./reset.css');
+@import url('./variables/layers.css');
+@import url('./variables/sizes.css');
+@import url('./variables/colors.css');
 
 html {
 	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
 }

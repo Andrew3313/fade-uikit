@@ -16,6 +16,8 @@
 	--fade-uikit-orange: #db7831;
 	--fade-uikit-aqua-green: #55d9ab;
 
+	--fade-uikit-overlay-color: rgba(0, 0, 0, 0.5);
+
 	--fade-uikit-gradient-component: linear-gradient(
 		134.42deg,
 		rgba(217, 217, 217, 0.1),

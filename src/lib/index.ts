@@ -1,2 +1,3 @@
-export * from './colors'
+export * from './constants'
 export * from './utils'
+export * from './dom'

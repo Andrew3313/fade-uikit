@@ -1,4 +1,4 @@
-import type { Values } from './utils'
+import type { Values } from '../utils'
 
 export const Colors = {
 	GREEN: 'green',
