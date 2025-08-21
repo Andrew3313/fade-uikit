@@ -1,7 +1,6 @@
 import styles from './switch.module.css'
 import type { ISwitchProps } from './switch.props'
-import { AccentColors } from '@/lib'
-import clsx from 'clsx'
+import { AccentColors, cn } from '@/lib'
 
 export const Switch = ({
 	checked,
@@ -18,12 +17,12 @@ export const Switch = ({
 
 	return (
 		<label
-			className={clsx(
+			className={cn(
 				styles.switch,
-				styles[size],
-				styles[accentColor],
-				isDisabled && styles['switch-disabled'],
-				className
+				{
+					[styles['switch-disabled']]: isDisabled
+				},
+				[styles[size], styles[accentColor], className]
 			)}
 		>
 			<input

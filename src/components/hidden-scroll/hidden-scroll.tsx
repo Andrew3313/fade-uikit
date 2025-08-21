@@ -1,6 +1,6 @@
 import styles from './hidden-scroll.module.css'
 import type { IHiddenScrollProps } from './hidden-scroll.props'
-import clsx from 'clsx'
+import { cn } from '@/lib'
 
 export function HiddenScroll({
 	children,
@@ -8,7 +8,10 @@ export function HiddenScroll({
 	...props
 }: IHiddenScrollProps) {
 	return (
-		<div className={clsx(styles['hidden-scroll'], className)} {...props}>
+		<div
+			className={cn(styles['hidden-scroll'], {}, [className])}
+			{...props}
+		>
 			{children}
 		</div>
 	)

@@ -1,6 +1,6 @@
 import styles from './overlay.module.css'
 import type { IOverlayProps } from './overlay.props'
-import clsx from 'clsx'
+import { cn } from '@/lib'
 
 export function Overlay({
 	position = 'center',
@@ -11,7 +11,7 @@ export function Overlay({
 	return (
 		<div
 			onClick={onClick}
-			className={clsx(styles.overlay, styles[position], className)}
+			className={cn(styles.overlay, {}, [styles[position], className])}
 		>
 			{children}
 		</div>

@@ -1,7 +1,6 @@
 import styles from './badge.module.css'
 import { BadgeVariants, type IBadgeProps } from './badge.props'
-import { AccentColors } from '@/lib'
-import clsx from 'clsx'
+import { AccentColors, cn } from '@/lib'
 
 export function Badge({
 	children,
@@ -15,14 +14,16 @@ export function Badge({
 }: IBadgeProps) {
 	return (
 		<span
-			className={clsx(
+			className={cn(
 				styles.badge,
-				styles[variant],
-				styles[size],
-				fill && styles[fill],
-				radius && variant === BadgeVariants.DEFAULT && styles[radius],
-				accent && styles[accentColor],
-				className
+				{
+					...(fill ? { [styles[fill]]: true } : {}),
+					...(radius && variant === BadgeVariants.DEFAULT
+						? { [styles[radius]]: true }
+						: {}),
+					[styles[accentColor]]: accent
+				},
+				[styles[variant], styles[size], className]
 			)}
 		>
 			{children}

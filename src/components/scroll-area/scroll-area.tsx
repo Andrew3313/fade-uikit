@@ -1,7 +1,6 @@
 import styles from './scroll-area.module.css'
 import type { IScrollAreaProps } from './scroll-area.props'
-import { AccentColors } from '@/lib'
-import clsx from 'clsx'
+import { AccentColors, cn } from '@/lib'
 import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
 
@@ -31,12 +30,11 @@ export function ScrollArea({
 			ariaLabel={ariaLabel}
 			scrollbarMinSize={scrollbarMinSize}
 			scrollbarMaxSize={scrollbarMaxSize}
-			className={clsx(
-				styles.scrollArea,
+			className={cn(styles.scrollArea, {}, [
 				styles[thumbColor],
-				className,
-				styles[size]
-			)}
+				styles[size],
+				className
+			])}
 			style={
 				{
 					'--track-color': trackColor,

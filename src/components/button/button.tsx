@@ -1,7 +1,6 @@
 import styles from './button.module.css'
 import { ButtonVariants, type IButtonProps } from './button.props'
-import { AccentColors } from '@/lib'
-import clsx from 'clsx'
+import { cn, AccentColors } from '@/lib'
 
 export function Button({
 	children,
@@ -24,18 +23,16 @@ export function Button({
 		<button
 			type={type}
 			disabled={isDisabled || isLoading}
-			className={clsx(
+			className={cn(
 				styles.button,
-				styles[size],
-				styles[variant],
-				variant !== ButtonVariants.GHOST && styles[fill],
-				accent && styles[accentColor],
 				{
 					[styles.fullWidth]: fullWidth,
 					[styles.loading]: isLoading,
-					[styles.rounded]: rounded
+					[styles.rounded]: rounded,
+					[styles[fill]]: variant !== ButtonVariants.GHOST,
+					[styles[accentColor]]: accent
 				},
-				className
+				[styles[size], styles[variant], className]
 			)}
 			aria-busy={isLoading}
 			{...props}

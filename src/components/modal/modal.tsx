@@ -6,7 +6,7 @@ import { Portal } from '../portal'
 import styles from './modal.module.css'
 import type { IModalProps, IModalSectionProps } from './modal.props'
 import { useModal } from '@/hooks'
-import clsx from 'clsx'
+import { cn } from '@/lib'
 
 const ANIMATION_DELAY = 300
 
@@ -40,21 +40,19 @@ export function Modal({
 					aria-modal='true'
 					aria-label={ariaLabel}
 					tabIndex={-1}
-					className={clsx(
+					className={cn(
 						styles.modal,
-						styles[size],
-						styles[slideFrom],
 						{
 							[styles.opened]: isOpen && isMounted && !isClosing,
 							[styles.closing]: isClosing
 						},
-						className
+						[styles[size], styles[slideFrom], className]
 					)}
 					onClick={(e) => e.stopPropagation()}
 				>
 					<button
 						onClick={close}
-						className={clsx(styles.close, {
+						className={cn(styles.close, {
 							[styles['close-right']]: position === 'top'
 						})}
 					>
@@ -71,16 +69,16 @@ Modal.Header = function ModalHeader({
 	children,
 	className
 }: IModalSectionProps) {
-	return <div className={clsx(styles.header, className)}>{children}</div>
+	return <div className={cn(styles.header, {}, [className])}>{children}</div>
 }
 
 Modal.Body = function ModalBody({ children, className }: IModalSectionProps) {
-	return <div className={clsx(styles.body, className)}>{children}</div>
+	return <div className={cn(styles.body, {}, [className])}>{children}</div>
 }
 
 Modal.Footer = function ModalFooter({
 	children,
 	className
 }: IModalSectionProps) {
-	return <div className={clsx(styles.footer, className)}>{children}</div>
+	return <div className={cn(styles.footer, {}, [className])}>{children}</div>
 }
