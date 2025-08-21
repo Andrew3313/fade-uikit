@@ -1,24 +1,123 @@
-.scrollArea :global(.simplebar-track .simplebar-scrollbar)::before {
-	content: '';
-	display: block;
-	border-radius: var(--thumb-radius);
+.scroll-area {
+	--thumb-color: var(--fade-uikit-gradient-blue);
+
+	border-radius: var(--fade-uikit-radius-md);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-rows: auto;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.content {
+	font-size: 1.6rem;
+	height: 90vh;
+	-ms-overflow-style: none;
+	overflow: auto;
+	padding: 1rem;
+	scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+	display: none;
+}
+
+.button {
+	background: transparent;
+	border: none;
+	border-radius: var(--fade-uikit-radius-md);
+	cursor: pointer;
+	font-size: 1.4rem;
+	padding: 4px 6px;
+	transition: transform 0.05s;
+	user-select: none;
+}
+
+.button:hover {
+	filter: brightness(0.95);
+}
+
+.button:active {
+	transform: translateY(1px);
+}
+
+.button:focus {
+	outline: none;
+}
+
+.button:focus-visible {
+	outline: 1px solid #fff;
+}
+
+.scrollbar-vertical {
+	display: grid;
+	gap: var(--sb-gap);
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 1fr;
+	padding: 1rem 0.5rem;
+	place-items: center;
+}
+
+.scrollbar-horizontal {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: var(--sb-gap);
+	padding: 0.5rem 1rem 1rem 1rem;
+	grid-column: 1 / -1;
+}
+
+.track-and-thumb {
+	position: relative;
+	height: 100%;
+	width: var(--sb-track-thickness);
+}
+
+.track-and-thumb-horizontal {
+	position: relative;
+	height: var(--sb-track-thickness);
+	width: 100%;
+}
+
+.track {
+	touch-action: none;
+	background: var(--sb-track-color);
+	border-radius: var(--sb-track-radius);
+	position: absolute;
+	inset: 0;
+	width: var(--sb-track-thickness);
+	cursor: pointer;
+}
+
+.track-horizontal {
+	touch-action: none;
+	background: var(--sb-track-color);
+	border-radius: var(--sb-track-radius);
+	position: absolute;
+	inset: 0;
+	height: var(--sb-track-thickness);
+	cursor: pointer;
+}
+
+.thumb {
+	touch-action: none;
+	position: absolute;
+	left: 0;
+	width: var(--sb-track-thickness);
+	border-radius: var(--sb-thumb-radius);
 	background: var(--thumb-color);
 }
 
-.scrollArea :global(.simplebar-track) {
-	background: var(--track-color);
-	border-radius: var(--track-radius);
+.thumb-horizontal {
+	touch-action: none;
+	position: absolute;
+	top: 0;
+	height: var(--sb-track-thickness);
+	border-radius: var(--sb-thumb-radius);
+	background: var(--thumb-color);
 }
 
-.scrollArea :global(.simplebar-track.simplebar-vertical) {
-	width: var(--scroll-size);
-}
-
-.scrollArea :global(.simplebar-track.simplebar-horizontal) {
-	height: var(--scroll-size);
-}
-
-/* Акцентные цвета */
 .blue-accent {
 	--thumb-color: var(--fade-uikit-gradient-blue);
 }

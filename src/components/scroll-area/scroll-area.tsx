@@ -1,52 +1,147 @@
+'use client'
+
 import styles from './scroll-area.module.css'
 import type { IScrollAreaProps } from './scroll-area.props'
-import { AccentColors, cn } from '@/lib'
-import SimpleBar from 'simplebar-react'
-import 'simplebar-react/dist/simplebar.min.css'
+import { useCustomScrollbar } from '@/hooks'
+import { cn, AccentColors } from '@/lib'
 
 export function ScrollArea({
 	children,
 	thumbColor = AccentColors.BLUE,
 	trackColor = 'transparent',
-	ariaLabel = 'scrollable content',
-	autoHide = false,
-	size = 7,
-	trackRadius = 5,
+	ariaLabel = 'Scrollable content',
+	scrollAreaSize = 30,
+	gap = 10,
 	thumbRadius = 5,
-	scrollbarMinSize = 25,
-	scrollbarMaxSize = 0,
-	scrollbarFixedSize,
-	style,
-	className
+	trackThickness = 7,
+	trackRadius = 5,
+	contentClassName,
+	className,
+	...props
 }: IScrollAreaProps) {
-	if (scrollbarFixedSize) {
-		scrollbarMinSize = scrollbarFixedSize
-		scrollbarMaxSize = scrollbarFixedSize
-	}
+	const { refs, state, handlers } = useCustomScrollbar()
+
+	const gridTemplateColumns = state.canScrollY
+		? `1fr ${scrollAreaSize}px`
+		: '1fr'
 
 	return (
-		<SimpleBar
-			autoHide={autoHide}
-			ariaLabel={ariaLabel}
-			scrollbarMinSize={scrollbarMinSize}
-			scrollbarMaxSize={scrollbarMaxSize}
-			className={cn(styles.scrollArea, {}, [
+		<div
+			aria-label={ariaLabel}
+			className={cn(styles['scroll-area'], {}, [
 				styles[thumbColor],
-				styles[size],
 				className
 			])}
 			style={
 				{
-					'--track-color': trackColor,
-					'--scroll-size': `${size}px`,
-					'--thumb-radius': `${thumbRadius}px`,
-					'--track-radius': `${trackRadius}px`,
+					gridTemplateColumns,
 					color: 'inherit',
-					...style
+					'--sb-gap': `${gap}px`,
+					'--sb-track-thickness': `${trackThickness}px`,
+					'--sb-track-color': trackColor,
+					'--sb-thumb-radius': `${thumbRadius}px`,
+					'--sb-track-radius': `${trackRadius}px`
 				} as React.CSSProperties
 			}
 		>
-			{children}
-		</SimpleBar>
+			{/* Контент */}
+			<div
+				ref={refs.contentRef}
+				className={cn(styles.content, {}, [contentClassName])}
+				{...props}
+			>
+				{children}
+			</div>
+
+			{/* Вертикальный скролл */}
+			{state.canScrollY && (
+				<div className={styles['scrollbar-vertical']}>
+					<button
+						className={styles.button}
+						onClick={() => handlers.scrollYBy(-200)}
+						aria-label='Scroll up'
+						type='button'
+					>
+						⇑
+					</button>
+
+					<div className={styles['track-and-thumb']}>
+						<div
+							className={styles.track}
+							ref={refs.vTrackRef}
+							onPointerDown={handlers.handleVTrackPointerDown}
+							style={{
+								cursor: state.isDraggingV
+									? 'grabbing'
+									: 'pointer'
+							}}
+						/>
+						<div
+							className={styles.thumb}
+							ref={refs.vThumbRef}
+							onPointerDown={handlers.handleVThumbPointerDown}
+							style={{
+								height: `${state.thumbHeight}px`,
+								cursor: state.isDraggingV ? 'grabbing' : 'grab'
+							}}
+						/>
+					</div>
+
+					<button
+						className={styles.button}
+						onClick={() => handlers.scrollYBy(200)}
+						aria-label='Scroll down'
+						type='button'
+					>
+						⇓
+					</button>
+				</div>
+			)}
+
+			{/* Горизонтальный скролл */}
+			{state.canScrollX && (
+				<div className={styles['scrollbar-horizontal']}>
+					<button
+						className={styles.button}
+						onClick={() => handlers.scrollXBy(-200)}
+						aria-label='Scroll left'
+						type='button'
+					>
+						⇐
+					</button>
+
+					<div className={styles['track-and-thumb-horizontal']}>
+						<div
+							className={styles['track-horizontal']}
+							ref={refs.hTrackRef}
+							onPointerDown={handlers.handleHTrackPointerDown}
+							style={{
+								cursor: state.isDraggingH
+									? 'grabbing'
+									: 'pointer'
+							}}
+						/>
+						<div
+							className={styles['thumb-horizontal']}
+							ref={refs.hThumbRef}
+							onPointerDown={handlers.handleHThumbPointerDown}
+							style={{
+								width: `${state.thumbWidth}px`,
+								cursor: state.isDraggingH ? 'grabbing' : 'grab'
+							}}
+						/>
+					</div>
+
+					<button
+						className={styles.button}
+						onClick={() => handlers.scrollXBy(200)}
+						aria-label='Scroll right'
+						type='button'
+					>
+						⇒
+					</button>
+				</div>
+			)}
+		</div>
 	)
 }

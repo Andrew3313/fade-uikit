@@ -70,8 +70,5 @@
 		"*.{ts,tsx}": [
 			"eslint --fix --report-unused-disable-directives --max-warnings=0"
 		]
-	},
-	"dependencies": {
-		"simplebar-react": "^3.3.2"
 	}
 }

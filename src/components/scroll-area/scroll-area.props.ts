@@ -2,16 +2,14 @@ import type { TAccentColor } from '@/lib'
 
 export interface IScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {
 	children: React.ReactNode
-	style?: React.CSSProperties
 	thumbColor?: TAccentColor
-	trackColor?: string
-	size?: number
 	thumbRadius?: number
+	trackThickness?: number
+	trackColor?: string
 	trackRadius?: number
-	scrollbarMinSize?: number
-	scrollbarMaxSize?: number
-	scrollbarFixedSize?: number
+	gap?: number
+	scrollAreaSize?: number
 	ariaLabel?: string
-	autoHide?: boolean
 	className?: string
+	contentClassName?: string
 }
