@@ -1,4 +1,5 @@
 import { Overlay } from './overlay'
+import { Positions } from '@/lib'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta: Meta<typeof Overlay> = {
@@ -8,17 +9,7 @@ const meta: Meta<typeof Overlay> = {
 	argTypes: {
 		position: {
 			control: { type: 'select' },
-			options: [
-				'center',
-				'top',
-				'bottom',
-				'left',
-				'right',
-				'top-left',
-				'top-right',
-				'bottom-left',
-				'bottom-right'
-			]
+			options: Object.values(Positions)
 		}
 	}
 }

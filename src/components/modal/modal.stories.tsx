@@ -1,5 +1,6 @@
 import { Button } from '../button'
 import { Modal } from './modal'
+import { Positions } from '@/lib'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState, type ComponentProps } from 'react'
 
@@ -10,7 +11,7 @@ const meta: Meta<typeof Modal> = {
 	argTypes: {
 		position: {
 			control: { type: 'select' },
-			options: ['center', 'top', 'bottom', 'left', 'right']
+			options: Object.values(Positions)
 		},
 		size: {
 			control: { type: 'select' },
@@ -20,13 +21,27 @@ const meta: Meta<typeof Modal> = {
 			control: { type: 'select' },
 			options: ['center', 'top', 'bottom', 'left', 'right']
 		},
+		crossPosition: {
+			control: { type: 'select' },
+			options: [
+				'top-left',
+				'top-right',
+				'bottom-left',
+				'bottom-right',
+				'left-top',
+				'left-bottom',
+				'right-top',
+				'right-bottom',
+				'inside'
+			]
+		},
 		lazy: { control: false },
 		isOpen: { control: false },
 		onClose: { control: false }
 	},
 	args: {
 		size: 'md',
-		position: 'center',
+		position: Positions.CENTER,
 		slideFrom: 'center'
 	}
 }
@@ -128,4 +143,29 @@ export const SlideTop: Story = {
 export const SlideBottom: Story = {
 	render: Template,
 	args: { position: 'bottom', slideFrom: 'bottom' }
+}
+
+export const SlideTopRight: Story = {
+	render: Template,
+	args: { position: 'top-right', slideFrom: 'right' }
+}
+
+export const SlideTopLeft: Story = {
+	render: Template,
+	args: { position: 'top-left', slideFrom: 'left' }
+}
+
+export const SlideBottomRight: Story = {
+	render: Template,
+	args: { position: 'bottom-right', slideFrom: 'bottom' }
+}
+
+export const SlideBottomLeft: Story = {
+	render: Template,
+	args: { position: 'bottom-left', slideFrom: 'bottom' }
+}
+
+export const Lazy: Story = {
+	render: Template,
+	args: { lazy: true }
 }

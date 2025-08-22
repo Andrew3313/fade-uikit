@@ -3,7 +3,7 @@ import type { TIconProps } from './icon.props'
 export function CrossIcon({
 	className,
 	color = 'currentColor',
-	size = 18
+	size = 10
 }: TIconProps) {
 	return (
 		<svg

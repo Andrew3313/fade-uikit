@@ -1,9 +1,9 @@
 import styles from './overlay.module.css'
 import type { IOverlayProps } from './overlay.props'
-import { cn } from '@/lib'
+import { cn, Positions } from '@/lib'
 
 export function Overlay({
-	position = 'center',
+	position = Positions.CENTER,
 	children,
 	onClick,
 	className

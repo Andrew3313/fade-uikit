@@ -6,7 +6,7 @@ import { Portal } from '../portal'
 import styles from './modal.module.css'
 import type { IModalProps, IModalSectionProps } from './modal.props'
 import { useModal } from '@/hooks'
-import { cn } from '@/lib'
+import { cn, Positions } from '@/lib'
 
 const ANIMATION_DELAY = 300
 
@@ -14,11 +14,15 @@ export function Modal({
 	children,
 	onClose,
 	isOpen = false,
-	position = 'center',
+	position = Positions.CENTER,
 	size = 'md',
 	slideFrom = 'center',
 	ariaLabel = 'Modal window',
+	crossPosition = 'inside',
+	showCross = true,
+	crossSize,
 	lazy,
+	crossClassName,
 	className
 }: IModalProps) {
 	const { close, isClosing, isMounted, modalRef } = useModal({
@@ -30,6 +34,8 @@ export function Modal({
 	if ((lazy && !isMounted) || !isOpen) {
 		return null
 	}
+
+	const crossLocation = `cross-${crossPosition}`
 
 	return (
 		<Portal element={document.getElementById('modals') ?? document.body}>
@@ -50,14 +56,18 @@ export function Modal({
 					)}
 					onClick={(e) => e.stopPropagation()}
 				>
-					<button
-						onClick={close}
-						className={cn(styles.close, {
-							[styles['close-right']]: position === 'top'
-						})}
-					>
-						<CrossIcon color='#fff' />
-					</button>
+					{showCross && (
+						<button
+							onClick={close}
+							className={cn(styles.close, {}, [
+								styles[crossLocation],
+								crossClassName
+							])}
+						>
+							<CrossIcon size={crossSize} color='#fff' />
+						</button>
+					)}
+
 					<div className={styles['content-wrapper']}>{children}</div>
 				</div>
 			</Overlay>
