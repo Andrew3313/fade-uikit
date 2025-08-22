@@ -7,10 +7,11 @@ import { cn, AccentColors } from '@/lib'
 
 export function ScrollArea({
 	children,
-	thumbColor = AccentColors.BLUE,
+	accentColor = AccentColors.BLUE,
 	trackColor = 'transparent',
 	ariaLabel = 'Scrollable content',
-	scrollAreaSize = 30,
+	showArrows = true,
+	scrollAreaSize = 40,
 	gap = 10,
 	thumbRadius = 5,
 	trackThickness = 7,
@@ -21,20 +22,19 @@ export function ScrollArea({
 }: IScrollAreaProps) {
 	const { refs, state, handlers } = useCustomScrollbar()
 
-	const gridTemplateColumns = state.canScrollY
-		? `1fr ${scrollAreaSize}px`
-		: '1fr'
+	const areaSize = state.canScrollY ? `1fr ${scrollAreaSize}px` : '1fr'
+	const scrollbarSize = showArrows ? 'auto 1fr auto' : '1fr'
 
 	return (
 		<div
 			aria-label={ariaLabel}
 			className={cn(styles['scroll-area'], {}, [
-				styles[thumbColor],
+				styles[accentColor],
 				className
 			])}
 			style={
 				{
-					gridTemplateColumns,
+					gridTemplateColumns: areaSize,
 					color: 'inherit',
 					'--sb-gap': `${gap}px`,
 					'--sb-track-thickness': `${trackThickness}px`,
@@ -55,17 +55,22 @@ export function ScrollArea({
 
 			{/* Вертикальный скролл */}
 			{state.canScrollY && (
-				<div className={styles['scrollbar-vertical']}>
-					<button
-						className={styles.button}
-						onClick={() => handlers.scrollYBy(-200)}
-						aria-label='Scroll up'
-						type='button'
-					>
-						⇑
-					</button>
+				<div
+					className={styles['scrollbar-vertical']}
+					style={{ gridTemplateRows: scrollbarSize }}
+				>
+					{showArrows && (
+						<button
+							className={styles.button}
+							onClick={() => handlers.scrollYBy(-200)}
+							aria-label='Scroll up'
+							type='button'
+						>
+							⯅
+						</button>
+					)}
 
-					<div className={styles['track-and-thumb']}>
+					<div className={styles['track-and-thumb-vertical']}>
 						<div
 							className={styles.track}
 							ref={refs.vTrackRef}
@@ -77,7 +82,7 @@ export function ScrollArea({
 							}}
 						/>
 						<div
-							className={styles.thumb}
+							className={styles['thumb-vertical']}
 							ref={refs.vThumbRef}
 							onPointerDown={handlers.handleVThumbPointerDown}
 							style={{
@@ -87,32 +92,39 @@ export function ScrollArea({
 						/>
 					</div>
 
-					<button
-						className={styles.button}
-						onClick={() => handlers.scrollYBy(200)}
-						aria-label='Scroll down'
-						type='button'
-					>
-						⇓
-					</button>
+					{showArrows && (
+						<button
+							className={styles.button}
+							onClick={() => handlers.scrollYBy(200)}
+							aria-label='Scroll down'
+							type='button'
+						>
+							⯆
+						</button>
+					)}
 				</div>
 			)}
 
 			{/* Горизонтальный скролл */}
 			{state.canScrollX && (
-				<div className={styles['scrollbar-horizontal']}>
-					<button
-						className={styles.button}
-						onClick={() => handlers.scrollXBy(-200)}
-						aria-label='Scroll left'
-						type='button'
-					>
-						⇐
-					</button>
+				<div
+					className={styles['scrollbar-horizontal']}
+					style={{ gridTemplateColumns: scrollbarSize }}
+				>
+					{showArrows && (
+						<button
+							className={styles.button}
+							onClick={() => handlers.scrollXBy(-200)}
+							aria-label='Scroll left'
+							type='button'
+						>
+							⯇
+						</button>
+					)}
 
 					<div className={styles['track-and-thumb-horizontal']}>
 						<div
-							className={styles['track-horizontal']}
+							className={styles.track}
 							ref={refs.hTrackRef}
 							onPointerDown={handlers.handleHTrackPointerDown}
 							style={{
@@ -132,14 +144,16 @@ export function ScrollArea({
 						/>
 					</div>
 
-					<button
-						className={styles.button}
-						onClick={() => handlers.scrollXBy(200)}
-						aria-label='Scroll right'
-						type='button'
-					>
-						⇒
-					</button>
+					{showArrows && (
+						<button
+							className={styles.button}
+							onClick={() => handlers.scrollXBy(200)}
+							aria-label='Scroll right'
+							type='button'
+						>
+							⯈
+						</button>
+					)}
 				</div>
 			)}
 		</div>

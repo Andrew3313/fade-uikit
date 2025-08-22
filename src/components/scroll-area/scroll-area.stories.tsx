@@ -7,7 +7,7 @@ const meta: Meta<typeof ScrollArea> = {
 	component: ScrollArea,
 	tags: ['autodocs'],
 	argTypes: {
-		thumbColor: {
+		accentColor: {
 			control: 'select',
 			options: Object.values(AccentColors)
 		}
@@ -78,5 +78,65 @@ export const Default: Story = {
 export const Horizontal: Story = {
 	args: {
 		children: <p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+	}
+}
+
+export const VerticalAndHorizontal: Story = {
+	args: {
+		children: (
+			<div style={{ height: '200px' }}>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+			</div>
+		)
+	}
+}
+
+export const WithoutArrows: Story = {
+	args: {
+		children: (
+			<div style={{ height: '200px' }}>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+				<p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>
+			</div>
+		),
+		showArrows: false,
+		accentColor: 'green-accent'
 	}
 }

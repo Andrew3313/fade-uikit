@@ -1,5 +1,5 @@
 .scroll-area {
-	--thumb-color: var(--fade-uikit-gradient-blue);
+	--sb-accent-color: var(--fade-uikit-gradient-blue);
 
 	border-radius: var(--fade-uikit-radius-md);
 	display: grid;
@@ -11,8 +11,6 @@
 }
 
 .content {
-	font-size: 1.6rem;
-	height: 90vh;
 	-ms-overflow-style: none;
 	overflow: auto;
 	padding: 1rem;
@@ -24,13 +22,20 @@
 }
 
 .button {
-	background: transparent;
+	background: var(--sb-accent-color);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	color: transparent;
 	border: none;
 	border-radius: var(--fade-uikit-radius-md);
 	cursor: pointer;
 	font-size: 1.4rem;
+	text-align: center;
 	padding: 4px 6px;
-	transition: transform 0.05s;
+	transition:
+		transform 0.05s,
+		filter 0.2s ease;
 	user-select: none;
 }
 
@@ -46,14 +51,9 @@
 	outline: none;
 }
 
-.button:focus-visible {
-	outline: 1px solid #fff;
-}
-
 .scrollbar-vertical {
 	display: grid;
 	gap: var(--sb-gap);
-	grid-template-rows: auto 1fr auto;
 	grid-template-columns: 1fr;
 	padding: 1rem 0.5rem;
 	place-items: center;
@@ -61,23 +61,24 @@
 
 .scrollbar-horizontal {
 	display: grid;
-	grid-template-columns: auto 1fr auto;
 	align-items: center;
 	gap: var(--sb-gap);
 	padding: 0.5rem 1rem 1rem 1rem;
 	grid-column: 1 / -1;
 }
 
-.track-and-thumb {
+.track-and-thumb-vertical {
 	position: relative;
 	height: 100%;
 	width: var(--sb-track-thickness);
+	transition: filter 0.2s ease;
 }
 
 .track-and-thumb-horizontal {
 	position: relative;
 	height: var(--sb-track-thickness);
 	width: 100%;
+	transition: filter 0.2s ease;
 }
 
 .track {
@@ -86,58 +87,65 @@
 	border-radius: var(--sb-track-radius);
 	position: absolute;
 	inset: 0;
-	width: var(--sb-track-thickness);
 	cursor: pointer;
 }
 
-.track-horizontal {
-	touch-action: none;
-	background: var(--sb-track-color);
-	border-radius: var(--sb-track-radius);
-	position: absolute;
-	inset: 0;
-	height: var(--sb-track-thickness);
-	cursor: pointer;
-}
-
-.thumb {
+.thumb-vertical {
 	touch-action: none;
 	position: absolute;
 	left: 0;
-	width: var(--sb-track-thickness);
+	right: 0;
 	border-radius: var(--sb-thumb-radius);
-	background: var(--thumb-color);
+	background: var(--sb-accent-color);
+}
+
+.thumb-vertical:hover {
+	filter: brightness(0.95);
 }
 
 .thumb-horizontal {
 	touch-action: none;
 	position: absolute;
 	top: 0;
-	height: var(--sb-track-thickness);
+	bottom: 0;
 	border-radius: var(--sb-thumb-radius);
-	background: var(--thumb-color);
+	background: var(--sb-accent-color);
+}
+
+.thumb-horizontal:hover {
+	filter: brightness(0.95);
+}
+
+.track-vertical,
+.track-horizontal {
+	z-index: 0;
+}
+
+.thumb-vertical,
+.thumb-horizontal {
+	z-index: 1;
 }
 
 .blue-accent {
-	--thumb-color: var(--fade-uikit-gradient-blue);
+	--sb-accent-color: var(--fade-uikit-gradient-blue);
 }
 
 .green-accent {
-	--thumb-color: var(--fade-uikit-gradient-green);
+	--sb-accent-color: var(--fade-uikit-gradient-green);
 }
 
 .red-accent {
-	--thumb-color: var(--fade-uikit-gradient-red);
+	--sb-accent-color: var(--fade-uikit-gradient-red);
 }
 
 .yellow-accent {
-	--thumb-color: var(--fade-uikit-gradient-yellow);
+	--sb-accent-color: var(--fade-uikit-gradient-yellow);
 }
 
 .purple-accent {
-	--thumb-color: var(--fade-uikit-gradient-purple);
+	--sb-accent-color: var(--fade-uikit-gradient-purple);
 }
 
 .pink-accent {
-	--thumb-color: var(--fade-uikit-gradient-pink);
+	--sb-accent-color: var(--fade-uikit-gradient-pink);
 }
