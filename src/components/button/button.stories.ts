@@ -2,8 +2,6 @@ import { Button } from './button'
 import { ButtonVariants } from './button.props'
 import { AccentColors } from '@/lib'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { ArrowRight, ArrowLeft } from 'lucide-react'
-import { createElement } from 'react'
 
 const meta: Meta<typeof Button> = {
 	title: 'Components/Button',
@@ -91,20 +89,6 @@ export const FullWidth: Story = {
 	args: {
 		children: 'Button',
 		fullWidth: true
-	}
-}
-
-export const WithLeftIcon: Story = {
-	args: {
-		children: 'Button',
-		startIcon: createElement(ArrowLeft)
-	}
-}
-
-export const WithRightIcon: Story = {
-	args: {
-		children: 'Button',
-		endIcon: createElement(ArrowRight)
 	}
 }
 
