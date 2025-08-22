@@ -8,7 +8,17 @@ const meta: Meta<typeof Overlay> = {
 	argTypes: {
 		position: {
 			control: { type: 'select' },
-			options: ['center', 'top', 'bottom', 'left', 'right']
+			options: [
+				'center',
+				'top',
+				'bottom',
+				'left',
+				'right',
+				'top-left',
+				'top-right',
+				'bottom-left',
+				'bottom-right'
+			]
 		}
 	}
 }

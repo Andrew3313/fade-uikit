@@ -30,7 +30,27 @@
 	align-items: flex-start;
 }
 
+.top-left {
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.top-right {
+	justify-content: flex-end;
+	align-items: flex-start;
+}
+
 .bottom {
 	justify-content: center;
+	align-items: flex-end;
+}
+
+.bottom-left {
+	justify-content: flex-start;
+	align-items: flex-end;
+}
+
+.bottom-right {
+	justify-content: flex-end;
 	align-items: flex-end;
 }
