@@ -1,13 +1,13 @@
 import { getFocusableElements, trapFocus } from '@/lib'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-interface IUseModalProps {
+interface IUseModalParams {
 	onClose?: () => void
 	isOpen?: boolean
 	animationDelay: number
 }
 
-export function useModal({ animationDelay, isOpen, onClose }: IUseModalProps) {
+export function useModal({ animationDelay, isOpen, onClose }: IUseModalParams) {
 	const [isMounted, setIsMounted] = useState(false)
 	const [isClosing, setIsClosing] = useState(false)
 
