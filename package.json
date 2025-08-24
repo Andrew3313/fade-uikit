@@ -1,7 +1,7 @@
 {
 	"name": "fade-uikit",
 	"private": false,
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"type": "module",
 	"description": "UI kit based on React and Vite",
 	"author": {
@@ -26,6 +26,10 @@
 	},
 	"scripts": {
 		"build": "tsc -b && vite build",
+		"prepublishOnly": "npm run build",
+		"release:patch": "npm version patch && npm publish",
+		"release:minor": "npm version minor && npm publish",
+		"release:major": "npm version major && npm publish",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"lint-staged": "lint-staged",
 		"prepare": "husky install",
