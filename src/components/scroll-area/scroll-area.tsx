@@ -9,8 +9,10 @@ export function ScrollArea({
 	children,
 	accentColor = AccentColors.BLUE,
 	trackColor = 'transparent',
+	thumbColor = '#888',
 	ariaLabel = 'Scrollable content',
 	showArrows = true,
+	accent = false,
 	scrollAreaSize = 40,
 	gap = 10,
 	thumbRadius = 5,
@@ -28,10 +30,13 @@ export function ScrollArea({
 	return (
 		<div
 			aria-label={ariaLabel}
-			className={cn(styles['scroll-area'], {}, [
-				styles[accentColor],
-				className
-			])}
+			className={cn(
+				styles['scroll-area'],
+				{
+					[styles[accentColor]]: accent
+				},
+				[className]
+			)}
 			style={
 				{
 					gridTemplateColumns: areaSize,
@@ -39,6 +44,7 @@ export function ScrollArea({
 					'--sb-gap': `${gap}px`,
 					'--sb-track-thickness': `${trackThickness}px`,
 					'--sb-track-color': trackColor,
+					'--sb-thumb-color': thumbColor,
 					'--sb-thumb-radius': `${thumbRadius}px`,
 					'--sb-track-radius': `${trackRadius}px`
 				} as React.CSSProperties

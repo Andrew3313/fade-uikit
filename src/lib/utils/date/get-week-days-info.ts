@@ -1,15 +1,17 @@
 import { createDate } from './create-date'
 
 export const getWeekDaysInfo = (
-	firstWeekDay: number = 4,
+	firstWeekDay: number = 2,
 	locale: string = 'default'
 ) => {
 	const weekDaysInfo: {
 		day: ReturnType<typeof createDate>['day']
 		dayShort: ReturnType<typeof createDate>['dayShort']
+		isToday: boolean
 	}[] = Array.from({ length: 7 })
 
 	const date = new Date()
+	const todayNum = date.getDay() + 1
 
 	weekDaysInfo.forEach((_, i) => {
 		const { day, dayNumberInWeek, dayShort } = createDate({
@@ -21,7 +23,11 @@ export const getWeekDaysInfo = (
 			)
 		})
 
-		weekDaysInfo[dayNumberInWeek - 1] = { day, dayShort }
+		weekDaysInfo[dayNumberInWeek - 1] = {
+			day,
+			dayShort,
+			isToday: dayNumberInWeek === todayNum
+		}
 	})
 
 	return [

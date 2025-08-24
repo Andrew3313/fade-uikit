@@ -4,7 +4,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const meta: Meta<typeof HiddenScroll> = {
 	title: 'Components/HiddenScroll',
 	component: HiddenScroll,
-	tags: ['autodocs']
+	tags: ['autodocs'],
+	argTypes: {
+		children: { control: false }
+	}
 }
 
 export default meta

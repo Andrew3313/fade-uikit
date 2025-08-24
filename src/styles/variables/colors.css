@@ -1,11 +1,14 @@
 :root {
 	--fade-uikit-white: #ffffff;
+	--fade-uikit-white-soft: #ffffff80;
 
 	--fade-uikit-black: #000000;
 	--fade-uikit-black-soft: #151515;
 	--fade-uikit-black-charcoal: #00000066;
 
 	--fade-uikit-gray: #4c4c4c;
+	--fade-uikit-gray-soft: #22222233;
+	--fade-uikit-gray-dark: #1e1e1e33;
 
 	--fade-uikit-green: #42a858;
 	--fade-uikit-red: #b72828;
@@ -14,7 +17,7 @@
 	--fade-uikit-orange: #db7831;
 	--fade-uikit-aqua-green: #55d9ab;
 
-	--fade-uikit-overlay-color: rgba(0, 0, 0, 0.5);
+	--fade-uikit-overlay-color: #00000080;
 
 	--fade-uikit-gradient-base: linear-gradient(
 		134.42deg,

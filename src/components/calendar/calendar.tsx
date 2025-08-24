@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowIcon } from '../icons'
+import { Separator } from '../separator'
 import styles from './calendar.module.css'
 import { CalendarVariants, type ICalendarProps } from './calendar.props'
 import { useCalendar } from '@/hooks'
@@ -12,6 +13,8 @@ export function Calendar({
 	variant = CalendarVariants.DEFAULT,
 	accentColor = AccentColors.BLUE,
 	arrowsColor = 'currentColor',
+	size = 'md',
+	showFooter = true,
 	firstWeekDayNumber,
 	locale,
 	range,
@@ -55,38 +58,65 @@ export function Calendar({
 			className={cn(
 				styles.calendar,
 				{ [styles.ghost]: variant === CalendarVariants.GHOST },
-				[styles[accentColor], className]
+				[styles[accentColor], styles[size], className]
 			)}
 		>
 			<div className={styles.header}>
 				{state.mode === 'days' && (
-					<div
-						role='button'
-						tabIndex={0}
+					<button
+						type='button'
 						onClick={() => functions.setMode('months')}
 						className={styles['toggle-mode']}
 					>
-						{state.monthsInfo[state.selectedMonth.monthIndex].month}{' '}
+						<span className={styles['month-name']}>
+							{
+								state.monthsInfo[state.selectedMonth.monthIndex]
+									.month
+							}
+						</span>
+						<span className={styles['year-name']}>
+							{state.selectedYear}
+						</span>
+					</button>
+				)}
+				{state.mode === 'months' && (
+					<div className={styles['selected-year']}>
 						{state.selectedYear}
 					</div>
 				)}
-				{state.mode === 'months' && <div>{state.selectedYear}</div>}
 
-				<div className={styles.arrows}>
+				<Separator
+					accent
+					accentColor={accentColor}
+					direction='horizontal'
+					size='sm'
+				/>
+
+				<div className={styles['arrows-container']}>
 					<button
+						type='button'
 						className={styles.arrow}
 						disabled={!canGoLeft}
 						onClick={() => functions.onClickArrow('left')}
 					>
-						<ArrowIcon color={arrowsColor} direction='left' />
+						<ArrowIcon
+							size={15}
+							color={arrowsColor}
+							direction='left'
+						/>
 					</button>
 
 					<button
+						type='button'
 						className={styles.arrow}
 						disabled={!canGoRight}
 						onClick={() => functions.onClickArrow('right')}
 					>
-						<ArrowIcon color={arrowsColor} direction='right' />
+						<ArrowIcon
+							size={15}
+							color={arrowsColor}
+							direction='right'
+						/>
 					</button>
 				</div>
 			</div>
@@ -98,9 +128,14 @@ export function Calendar({
 							{state.weekDaysInfo.map((w) => (
 								<div
 									key={w.dayShort}
-									className={styles['week-day']}
+									className={cn(styles['week-day'], {
+										[styles['current-week-day']]: w.isToday
+									})}
+									aria-current={
+										w.isToday ? 'date' : undefined
+									}
 								>
-									{w.dayShort}
+									<span>{w.dayShort}</span>
 								</div>
 							))}
 						</div>
@@ -122,32 +157,27 @@ export function Calendar({
 
 								const handleClick = () => {
 									if (isOutOfRange) return
-
 									functions.setSelectedDay(day)
 									selectDate(day.date)
 								}
 
 								return (
-									<div
+									<button
 										key={day.date.toISOString()}
-										role='button'
-										tabIndex={isOutOfRange ? -1 : 0}
-										aria-disabled={isOutOfRange}
-										onClick={
-											isOutOfRange
-												? undefined
-												: handleClick
-										}
+										type='button'
+										disabled={isOutOfRange}
+										onClick={handleClick}
 										className={cn(styles.day, {
-											[styles.today]: isToday,
-											[styles.selected]: isSelectedDay,
+											[styles['today-item']]: isToday,
+											[styles['selected-item']]:
+												isSelectedDay,
 											[styles.additional]:
 												isAdditionalDay,
 											[styles.disabled]: isOutOfRange
 										})}
 									>
 										{day.dayNumber}
-									</div>
+									</button>
 								)
 							})}
 						</div>
@@ -155,38 +185,64 @@ export function Calendar({
 				)}
 
 				{state.mode === 'months' && (
-					<div className={styles['pick-items-container']}>
+					<div className={styles['select-months-container']}>
 						{state.monthsInfo.map((m) => {
 							const isCurrentMonth =
 								new Date().getMonth() === m.monthIndex &&
 								state.selectedYear === new Date().getFullYear()
+
 							const isSelectedMonth =
 								m.monthIndex === state.selectedMonth.monthIndex
 
 							return (
-								<div
+								<button
 									key={m.month}
-									role='button'
-									tabIndex={0}
+									type='button'
 									onClick={() => {
 										functions.setSelectedMonthByIndex(
 											m.monthIndex
 										)
 										functions.setMode('days')
 									}}
-									className={cn(styles['pick-item'], {
+									className={cn(styles['select-month'], {
 										[styles['today-item']]: isCurrentMonth,
 										[styles['selected-item']]:
 											isSelectedMonth
 									})}
 								>
 									{m.monthShort}
-								</div>
+								</button>
 							)
 						})}
 					</div>
 				)}
 			</div>
+
+			{showFooter && (
+				<div className={styles.footer}>
+					<Separator
+						accent
+						accentColor={accentColor}
+						direction='horizontal'
+						size='sm'
+					/>
+
+					<div className={styles.notes}>
+						<div className={styles.note}>
+							<div
+								className={cn(styles.square, {}, [
+									styles['square-current-date']
+								])}
+							/>
+							<span>- Актуальная дата</span>
+						</div>
+						<div className={styles.note}>
+							<div className={styles.square} />
+							<span>- Выбранная дата</span>
+						</div>
+					</div>
+				</div>
+			)}
 		</div>
 	)
 }

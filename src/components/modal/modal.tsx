@@ -65,7 +65,7 @@ export function Modal({
 					{showCross && (
 						<button
 							onClick={close}
-							className={cn(styles.close, {}, [
+							className={cn(styles.cross, {}, [
 								styles[crossLocation],
 								crossClassName
 							])}

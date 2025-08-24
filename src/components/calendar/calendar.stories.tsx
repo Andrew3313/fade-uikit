@@ -1,6 +1,6 @@
 import { Calendar } from './calendar'
 import { CalendarVariants } from './calendar.props'
-import { AccentColors, formatDate } from '@/lib'
+import { AccentColors, formatDate, WeekDays } from '@/lib'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState, type ComponentProps } from 'react'
 
@@ -18,6 +18,11 @@ const meta: Meta<typeof Calendar> = {
 			options: Object.values(AccentColors)
 		},
 		locale: { control: 'select', options: ['ru-RU', 'en-US', 'default'] },
+		firstWeekDayNumber: {
+			control: 'select',
+			options: Object.keys(WeekDays),
+			mapping: WeekDays
+		},
 		range: { control: false },
 		date: { control: false },
 		intervalDirection: {
@@ -60,6 +65,11 @@ export const Ghost: Story = {
 	args: { variant: 'ghost' }
 }
 
+export const WithoutFooter: Story = {
+	render: Template,
+	args: { showFooter: false }
+}
+
 export const RangeBothFive: Story = {
 	render: Template,
 	args: {
@@ -90,7 +100,7 @@ export const RangeFromCurrentThree: Story = {
 export const FirstWeekDayNumber: Story = {
 	render: Template,
 	args: {
-		firstWeekDayNumber: 1
+		firstWeekDayNumber: WeekDays.Sunday
 	}
 }
 

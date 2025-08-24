@@ -22,6 +22,29 @@
 	-webkit-backdrop-filter: blur(20px);
 }
 
+/* Состояния */
+.button:disabled {
+	pointer-events: none;
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+	filter: brightness(0.95);
+}
+
+.button:active:not(:disabled) {
+	transform: translateY(1px);
+}
+
+.button:focus {
+	outline: none;
+}
+
+.button:focus-visible {
+	outline: 1px solid currentColor;
+}
+
 /* Размеры */
 .sm {
 	padding: 0.95rem 1.3rem;
@@ -55,35 +78,6 @@
 	border: none;
 }
 
-/* Акцентные цвета */
-[class*='-accent'] {
-	color: var(--fade-uikit-white);
-}
-
-.pink-accent {
-	background: var(--fade-uikit-gradient-pink);
-}
-
-.green-accent {
-	background: var(--fade-uikit-gradient-green);
-}
-
-.yellow-accent {
-	background: var(--fade-uikit-gradient-yellow);
-}
-
-.blue-accent {
-	background: var(--fade-uikit-gradient-blue);
-}
-
-.purple-accent {
-	background: var(--fade-uikit-gradient-purple);
-}
-
-.red-accent {
-	background: var(--fade-uikit-gradient-red);
-}
-
 /* Модификаторы */
 .fullWidth {
 	width: 100%;
@@ -114,27 +108,33 @@
 	animation: rotation 1s linear infinite;
 }
 
-/* Состояния */
-.button:disabled {
-	pointer-events: none;
-	opacity: 0.65;
-	cursor: not-allowed;
+/* Акцентные цвета */
+[class*='-accent'] {
+	color: var(--fade-uikit-white);
 }
 
-.button:hover:not(:disabled) {
-	filter: brightness(0.95);
+.pink-accent {
+	background: var(--fade-uikit-gradient-pink);
 }
 
-.button:active:not(:disabled) {
-	transform: translateY(1px);
+.green-accent {
+	background: var(--fade-uikit-gradient-green);
 }
 
-.button:focus {
-	outline: none;
+.yellow-accent {
+	background: var(--fade-uikit-gradient-yellow);
 }
 
-.button:focus-visible {
-	outline: 1px solid currentColor;
+.blue-accent {
+	background: var(--fade-uikit-gradient-blue);
+}
+
+.purple-accent {
+	background: var(--fade-uikit-gradient-purple);
+}
+
+.red-accent {
+	background: var(--fade-uikit-gradient-red);
 }
 
 @keyframes rotation {

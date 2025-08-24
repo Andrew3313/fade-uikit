@@ -75,6 +75,15 @@ export const Default: Story = {
 	}
 }
 
+export const AccentColor: Story = {
+	args: {
+		children: sampleText,
+		style: { height: '150px' },
+		accentColor: 'green-accent',
+		accent: true
+	}
+}
+
 export const Horizontal: Story = {
 	args: {
 		children: <p style={{ whiteSpace: 'nowrap' }}>{sampleText}</p>

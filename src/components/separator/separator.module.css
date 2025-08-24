@@ -1,0 +1,70 @@
+.separator {
+	background: var(--fade-uikit-gradient-base);
+}
+
+.separator.ghost {
+	background: var(--fade-uikit-gray-dark);
+}
+
+/* Горизонтальный */
+.separator.horizontal {
+	width: 100%;
+	height: 1px;
+}
+
+/* Вертикальный */
+.separator.vertical {
+	width: 1px;
+	height: 100%;
+}
+
+/* Размеры горизонтальные */
+.separator.sm.horizontal {
+	height: 1px;
+}
+
+.separator.md.horizontal {
+	height: 2px;
+}
+
+.separator.lg.horizontal {
+	height: 4px;
+}
+
+/* Размеры вертикальные */
+.separator.sm.vertical {
+	width: 1px;
+}
+
+.separator.md.vertical {
+	width: 2px;
+}
+
+.separator.lg.vertical {
+	width: 4px;
+}
+
+/* Акцентные цвета */
+.pink-accent {
+	background: var(--fade-uikit-gradient-pink);
+}
+
+.green-accent {
+	background: var(--fade-uikit-gradient-green);
+}
+
+.yellow-accent {
+	background: var(--fade-uikit-gradient-yellow);
+}
+
+.blue-accent {
+	background: var(--fade-uikit-gradient-blue);
+}
+
+.purple-accent {
+	background: var(--fade-uikit-gradient-purple);
+}
+
+.red-accent {
+	background: var(--fade-uikit-gradient-red);
+}

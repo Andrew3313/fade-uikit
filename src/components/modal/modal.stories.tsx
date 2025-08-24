@@ -39,7 +39,8 @@ const meta: Meta<typeof Modal> = {
 		variant: { control: 'select', options: Object.values(ModalVariants) },
 		lazy: { control: false },
 		isOpen: { control: false },
-		onClose: { control: false }
+		onClose: { control: false },
+		children: { control: false }
 	},
 	args: {
 		size: 'md',

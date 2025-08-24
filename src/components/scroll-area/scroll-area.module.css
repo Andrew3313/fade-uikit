@@ -1,6 +1,28 @@
-.scroll-area {
+.blue-accent {
 	--sb-accent-color: var(--fade-uikit-gradient-blue);
+}
 
+.green-accent {
+	--sb-accent-color: var(--fade-uikit-gradient-green);
+}
+
+.red-accent {
+	--sb-accent-color: var(--fade-uikit-gradient-red);
+}
+
+.yellow-accent {
+	--sb-accent-color: var(--fade-uikit-gradient-yellow);
+}
+
+.purple-accent {
+	--sb-accent-color: var(--fade-uikit-gradient-purple);
+}
+
+.pink-accent {
+	--sb-accent-color: var(--fade-uikit-gradient-pink);
+}
+
+.scroll-area {
 	border-radius: var(--fade-uikit-radius-md);
 	display: grid;
 	grid-template-columns: 1fr;
@@ -22,7 +44,7 @@
 }
 
 .button {
-	background: var(--sb-accent-color);
+	background: var(--sb-accent-color, var(--sb-thumb-color));
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
@@ -96,7 +118,7 @@
 	left: 0;
 	right: 0;
 	border-radius: var(--sb-thumb-radius);
-	background: var(--sb-accent-color);
+	background: var(--sb-accent-color, var(--sb-thumb-color));
 }
 
 .thumb-vertical:hover {
@@ -109,7 +131,7 @@
 	top: 0;
 	bottom: 0;
 	border-radius: var(--sb-thumb-radius);
-	background: var(--sb-accent-color);
+	background: var(--sb-accent-color, var(--sb-thumb-color));
 }
 
 .thumb-horizontal:hover {
@@ -124,28 +146,4 @@
 .thumb-vertical,
 .thumb-horizontal {
 	z-index: 1;
-}
-
-.blue-accent {
-	--sb-accent-color: var(--fade-uikit-gradient-blue);
-}
-
-.green-accent {
-	--sb-accent-color: var(--fade-uikit-gradient-green);
-}
-
-.red-accent {
-	--sb-accent-color: var(--fade-uikit-gradient-red);
-}
-
-.yellow-accent {
-	--sb-accent-color: var(--fade-uikit-gradient-yellow);
-}
-
-.purple-accent {
-	--sb-accent-color: var(--fade-uikit-gradient-purple);
-}
-
-.pink-accent {
-	--sb-accent-color: var(--fade-uikit-gradient-pink);
 }

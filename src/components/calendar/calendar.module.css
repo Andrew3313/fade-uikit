@@ -1,179 +1,4 @@
-.calendar {
-	--calendar-items-gap: 1.5rem;
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	min-width: 37.7rem;
-	padding: 1.5rem;
-	border-radius: var(--fade-uikit-radius-md);
-	box-shadow: var(--fade-uikit-shadow-sm);
-	color: var(--fade-uikit-white);
-	backdrop-filter: blur(20px);
-	box-shadow: var(--fade-uikit-shadow-sm);
-	background: var(--fade-uikit-gradient-base);
-	font-size: 1.2rem;
-	font-weight: 300;
-}
-
-.ghost {
-	color: inherit;
-	background: var(--fade-uikit-gradient-component);
-}
-
-.header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	gap: 2rem;
-	font-size: 1.6rem;
-	font-weight: 500;
-	margin-bottom: 2rem;
-}
-
-.toggle-mode {
-	cursor: pointer;
-	transition: filter 0.2s ease;
-}
-
-.toggle-mode:hover {
-	filter: brightness(0.95);
-}
-
-.body {
-	flex: 1;
-}
-
-.arrows {
-	display: flex;
-	gap: 4rem;
-	justify-content: center;
-	align-items: center;
-}
-
-.arrow {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: transparent;
-	border-radius: var(--fade-uikit-radius-md);
-	border: none;
-	color: inherit;
-	width: 2rem;
-	height: 2rem;
-	cursor: pointer;
-	transition:
-		transform 0.05s,
-		filter 0.2s ease;
-}
-
-.arrow:hover {
-	filter: brightness(0.95);
-}
-
-.arrow:active {
-	transform: translateY(1px);
-}
-
-.arrow:disabled {
-	opacity: 0.65;
-	cursor: not-allowed;
-	pointer-events: none;
-}
-
-.arrow:focus {
-	outline: none;
-}
-
-.arrow:focus-visible {
-	outline: 1px solid #fff;
-}
-
-.week-days-container {
-	display: grid;
-	text-align: center;
-	align-items: center;
-	grid-template-columns: repeat(7, 1fr);
-	grid-template-rows: 1fr;
-	gap: var(--calendar-items-gap);
-	margin-bottom: var(--calendar-items-gap);
-}
-
-.calendar-days-container {
-	display: grid;
-	text-align: center;
-	align-items: center;
-	grid-template-columns: repeat(7, 1fr);
-	grid-template-rows: 1fr;
-	gap: var(--calendar-items-gap);
-}
-
-.week-day {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 3.6rem;
-	height: 2.3rem;
-	text-transform: capitalize;
-	background: var(--fade-uikit-black-charcoal);
-	border-radius: var(--fade-uikit-radius-sm);
-}
-
-.day {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: var(--fade-uikit-radius-sm);
-	width: 3.6rem;
-	height: 3.6rem;
-	cursor: pointer;
-	box-shadow: var(--fade-uikit-shadow-md-strong);
-}
-
-.disabled {
-	opacity: 0.65;
-	cursor: not-allowed;
-	pointer-events: none;
-}
-
-.today {
-	background: var(--accent-color);
-	border: 1px solid rgba(255, 255, 255, 1);
-}
-
-.selected {
-	border: 1px solid rgba(255, 255, 255, 1);
-}
-
-.additional {
-	background: rgba(34, 34, 34, 0.2);
-}
-
-.pick-items-container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(4, 1fr);
-	text-align: center;
-	font-size: 1.6rem;
-	font-weight: 400;
-	gap: var(--calendar-items-gap);
-}
-
-.pick-item {
-	padding: 0.64rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-}
-
-.today-item {
-	border-radius: 0.35rem;
-}
-
-.unselected-year {
-	padding: 0.64rem 1rem;
-}
-
+/* Акцентные цвета */
 .blue-accent {
 	--accent-color: var(--fade-uikit-gradient-blue);
 }
@@ -196,4 +21,254 @@
 
 .pink-accent {
 	--accent-color: var(--fade-uikit-gradient-pink);
+}
+
+/* Сброс и базовые стили кнопок календаря */
+.calendar :where(button) {
+	cursor: pointer;
+	border: none;
+	background: transparent;
+	color: inherit;
+	border-radius: var(--fade-uikit-radius-sm);
+	transition:
+		filter 0.2s ease,
+		transform 0.05s ease;
+}
+
+.calendar :where(button:focus) {
+	outline: none;
+}
+
+.calendar :where(button:focus-visible) {
+	outline: 1px dashed currentColor;
+}
+
+.calendar :where(button:disabled) {
+	opacity: 0.65;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+/* Контейнер */
+.calendar {
+	--calendar-items-gap: 1.5rem;
+	--calendar-item-margin: 1.5rem;
+	--calendar-padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	min-width: 37.7rem;
+	padding: var(--calendar-padding);
+	border-radius: var(--fade-uikit-radius-md);
+	box-shadow: var(--fade-uikit-shadow-sm);
+	color: var(--fade-uikit-white);
+	backdrop-filter: blur(20px);
+	background: var(--fade-uikit-gradient-base);
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+
+.ghost {
+	color: inherit;
+	background: var(--fade-uikit-gradient-component);
+}
+
+/* Размеры */
+.calendar.sm {
+	min-width: 30rem;
+	font-size: 1rem;
+	--calendar-padding: 0.5rem;
+	--calendar-items-gap: 0.5rem;
+	--calendar-item-margin: 1rem;
+}
+
+.calendar.md {
+	--calendar-items-gap: 1.5rem;
+}
+
+.calendar.lg {
+	min-width: 45rem;
+	font-size: 1.6rem;
+	--calendar-items-gap: 2rem;
+	--calendar-item-margin: 2rem;
+}
+
+/* Шапка */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2rem;
+	margin-bottom: var(--calendar-item-margin);
+	font-size: 1.6rem;
+	font-weight: 500;
+}
+
+.toggle-mode {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem;
+}
+
+.toggle-mode:hover {
+	filter: brightness(0.95);
+}
+
+.month-name {
+	text-transform: capitalize;
+}
+
+/* Навигация стрелками */
+.arrows-container {
+	display: flex;
+	gap: 4rem;
+	align-items: center;
+}
+
+.arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2rem;
+	min-height: 2rem;
+	padding: 0.5rem;
+}
+
+.arrow:hover {
+	filter: brightness(0.95);
+}
+
+.arrow:active {
+	transform: translateY(1px);
+}
+
+/* Контент */
+.body {
+	flex: 1;
+}
+
+/* Дни недели */
+.week-days-container {
+	display: grid;
+	text-align: center;
+	align-items: center;
+	grid-template-columns: repeat(7, 1fr);
+	gap: var(--calendar-items-gap);
+	margin-bottom: var(--calendar-items-gap);
+}
+
+.week-day {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3.6rem;
+	height: 2.3rem;
+	text-transform: capitalize;
+	background: var(--fade-uikit-black-charcoal);
+	border-radius: var(--fade-uikit-radius-sm);
+}
+
+.current-week-day span {
+	background: var(--accent-color);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	display: inline-block;
+}
+
+@supports not (background-clip: text) {
+	.current-week-day span {
+		background: none;
+		color: var(--fade-uikit-white);
+	}
+}
+
+/* Дни месяца */
+.calendar-days-container {
+	display: grid;
+	text-align: center;
+	align-items: center;
+	grid-template-columns: repeat(7, 1fr);
+	gap: var(--calendar-items-gap);
+}
+
+.day {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3.6rem;
+	height: 3.6rem;
+	box-shadow: var(--fade-uikit-shadow-md-strong);
+}
+
+.today-item {
+	background: var(--accent-color);
+	border: 1px solid var(--fade-uikit-white);
+}
+
+.selected-item {
+	border: 1px solid var(--fade-uikit-white);
+}
+
+.additional {
+	background: var(--fade-uikit-gray-soft);
+}
+
+/* Выбор месяца */
+.select-months-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	text-align: center;
+	font-size: 1.6rem;
+	font-weight: 400;
+	gap: var(--calendar-items-gap);
+}
+
+.select-month {
+	padding: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: var(--fade-uikit-shadow-md-strong);
+}
+
+.selected-year {
+	padding: 0.5rem;
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	margin: var(--calendar-item-margin) 0
+		calc(var(--calendar-item-margin) - var(--calendar-padding)) 0;
+	font-size: 1.2rem;
+}
+
+.notes {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	margin-top: var(--calendar-item-margin);
+}
+
+.note {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.square {
+	width: 2.4rem;
+	height: 2.4rem;
+	border-radius: var(--fade-uikit-radius-sm);
+	box-shadow: var(--fade-uikit-shadow-md-strong);
+	border: 1px solid var(--fade-uikit-white);
+}
+
+.square-current-date {
+	background: var(--accent-color);
 }

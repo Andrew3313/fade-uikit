@@ -5,6 +5,8 @@ import {
 	getMonthsInfo,
 	getWeekDaysInfo,
 	getYearsInterval,
+	WeekDays,
+	type TWeekDay,
 	type TYearsIntervalDirection
 } from '@/lib'
 import { useMemo, useState } from 'react'
@@ -14,7 +16,7 @@ interface IUseCalendarParams {
 	locale?: string
 	range?: number
 	intervalDirection?: TYearsIntervalDirection
-	firstWeekDayNumber?: number
+	firstWeekDayNumber?: TWeekDay
 }
 
 const DAYS_IN_WEEK = 7
@@ -23,7 +25,7 @@ export function useCalendar({
 	selectedDate: date,
 	locale = 'default',
 	intervalDirection = 'both',
-	firstWeekDayNumber = 2, // С понедельника
+	firstWeekDayNumber = WeekDays.Monday,
 	range = 10
 }: IUseCalendarParams) {
 	const [mode, setMode] = useState<'days' | 'months'>('days')
