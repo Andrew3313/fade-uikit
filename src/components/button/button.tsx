@@ -4,11 +4,10 @@ import { cn, AccentColors } from '@/lib'
 
 export function Button({
 	children,
-	variant = ButtonVariants.SOLID,
+	variant = ButtonVariants.DEFAULT,
 	accentColor = AccentColors.BLUE,
 	type = 'button',
 	size = 'md',
-	fill = 'white-fill',
 	isDisabled = false,
 	isLoading = false,
 	accent = false,
@@ -29,7 +28,6 @@ export function Button({
 					[styles.fullWidth]: fullWidth,
 					[styles.loading]: isLoading,
 					[styles.rounded]: rounded,
-					[styles[fill]]: variant !== ButtonVariants.GHOST,
 					[styles[accentColor]]: accent
 				},
 				[styles[size], styles[variant], className]

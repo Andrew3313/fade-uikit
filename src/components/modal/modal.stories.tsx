@@ -1,5 +1,6 @@
 import { Button } from '../button'
 import { Modal } from './modal'
+import { ModalVariants } from './modal.props'
 import { Positions } from '@/lib'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState, type ComponentProps } from 'react'
@@ -35,6 +36,7 @@ const meta: Meta<typeof Modal> = {
 				'inside'
 			]
 		},
+		variant: { control: 'select', options: Object.values(ModalVariants) },
 		lazy: { control: false },
 		isOpen: { control: false },
 		onClose: { control: false }
@@ -42,7 +44,8 @@ const meta: Meta<typeof Modal> = {
 	args: {
 		size: 'md',
 		position: Positions.CENTER,
-		slideFrom: 'center'
+		slideFrom: 'center',
+		variant: ModalVariants.DEFAULT
 	}
 }
 
@@ -83,6 +86,11 @@ const Template = (args: ModalProps) => {
 
 export const Default: Story = {
 	render: Template
+}
+
+export const Ghost: Story = {
+	render: Template,
+	args: { variant: 'ghost' }
 }
 
 export const Small: Story = {

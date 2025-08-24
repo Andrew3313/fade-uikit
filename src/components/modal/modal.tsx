@@ -4,7 +4,11 @@ import { CrossIcon } from '../icons'
 import { Overlay } from '../overlay'
 import { Portal } from '../portal'
 import styles from './modal.module.css'
-import type { IModalProps, IModalSectionProps } from './modal.props'
+import {
+	ModalVariants,
+	type IModalProps,
+	type IModalSectionProps
+} from './modal.props'
 import { useModal } from '@/hooks'
 import { cn, Positions } from '@/lib'
 
@@ -14,6 +18,7 @@ export function Modal({
 	children,
 	onClose,
 	isOpen = false,
+	variant = ModalVariants.DEFAULT,
 	position = Positions.CENTER,
 	size = 'md',
 	slideFrom = 'center',
@@ -50,7 +55,8 @@ export function Modal({
 						styles.modal,
 						{
 							[styles.opened]: isOpen && isMounted && !isClosing,
-							[styles.closing]: isClosing
+							[styles.closing]: isClosing,
+							[styles.ghost]: variant === ModalVariants.GHOST
 						},
 						[styles[size], styles[slideFrom], className]
 					)}

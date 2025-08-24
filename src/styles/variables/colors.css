@@ -2,12 +2,10 @@
 	--fade-uikit-white: #ffffff;
 
 	--fade-uikit-black: #000000;
-	--fade-uikit-almost-black: #0a0a0a;
 	--fade-uikit-black-soft: #151515;
-	--fade-uikit-black-charcoal: #1e1e1e99;
+	--fade-uikit-black-charcoal: #00000066;
 
 	--fade-uikit-gray: #4c4c4c;
-	--fade-uikit-gray-soft: #ffffff99;
 
 	--fade-uikit-green: #42a858;
 	--fade-uikit-red: #b72828;
@@ -18,6 +16,11 @@
 
 	--fade-uikit-overlay-color: rgba(0, 0, 0, 0.5);
 
+	--fade-uikit-gradient-base: linear-gradient(
+		134.42deg,
+		rgba(0, 0, 0, 0.25),
+		rgba(21, 21, 21, 1) 100%
+	);
 	--fade-uikit-gradient-component: linear-gradient(
 		134.42deg,
 		rgba(217, 217, 217, 0.1),
@@ -63,6 +66,7 @@
 	--fade-uikit-shadow-sm:
 		inset 0 -2px 4px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.25);
 	--fade-uikit-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.25);
+	--fade-uikit-shadow-md-strong: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 	--fade-uikit-shadow-lg:
 		0 2px 4px rgba(0, 0, 0, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.25);
 }

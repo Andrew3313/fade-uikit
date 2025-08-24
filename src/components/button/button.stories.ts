@@ -9,7 +9,6 @@ const meta: Meta<typeof Button> = {
 	tags: ['autodocs'],
 	argTypes: {
 		variant: { control: 'select', options: Object.values(ButtonVariants) },
-		fill: { control: 'select', options: ['white-fill', 'black-fill'] },
 		accentColor: {
 			control: 'select',
 			options: Object.values(AccentColors)
@@ -23,7 +22,7 @@ export default meta
 
 type Story = StoryObj<typeof Button>
 
-export const Solid: Story = {
+export const Default: Story = {
 	args: {
 		children: 'Button'
 	}
@@ -89,20 +88,6 @@ export const FullWidth: Story = {
 	args: {
 		children: 'Button',
 		fullWidth: true
-	}
-}
-
-export const WhiteFill: Story = {
-	args: {
-		children: 'Button',
-		fill: 'white-fill'
-	}
-}
-
-export const BlackFill: Story = {
-	args: {
-		children: 'Button',
-		fill: 'black-fill'
 	}
 }
 

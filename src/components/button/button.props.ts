@@ -1,17 +1,12 @@
-import type { AddPostfix, TAccentColor, TColor, Values } from '@/lib'
+import type { TAccentColor, Values } from '@/lib'
 
 export const ButtonVariants = {
-	SOLID: 'solid',
+	DEFAULT: 'default',
 	OUTLINE: 'outline',
 	GHOST: 'ghost'
 } as const
 
 export type TButtonVariant = Values<typeof ButtonVariants>
-
-export type TButtonFill = AddPostfix<
-	Extract<TColor, 'white' | 'black'>,
-	'-fill'
->
 
 export type TButtonType = 'button' | 'reset' | 'submit'
 
@@ -24,7 +19,6 @@ export interface IButtonProps
 	variant?: TButtonVariant
 	size?: TButtonSize
 	accentColor?: TAccentColor
-	fill?: TButtonFill
 	accent?: boolean
 	isDisabled?: boolean
 	isLoading?: boolean

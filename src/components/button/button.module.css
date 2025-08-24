@@ -9,6 +9,7 @@
 	outline: none;
 	border-radius: var(--fade-uikit-radius-md);
 	border: none;
+	color: inherit;
 	box-shadow: var(--fade-uikit-shadow-lg);
 	position: relative;
 	transition:
@@ -33,36 +34,25 @@
 }
 
 .lg {
-	padding: 1.05px 4.675rem;
+	padding: 1.05rem 4.675rem;
 	font-size: 1.6rem;
 }
 
 /* Варианты */
-.solid {
-	background: var(--fade-uikit-gradient-component);
+.default {
+	color: var(--fade-uikit-white);
+	background: var(--fade-uikit-gradient-base);
 }
 
 .outline {
-	color: inherit;
+	background: transparent;
 	box-shadow: none;
 	border: 1px solid currentColor;
 }
 
 .ghost {
-	color: inherit;
 	background: var(--fade-uikit-gradient-component);
 	border: none;
-}
-
-/* Заливки */
-.white-fill {
-	color: var(--fade-uikit-black);
-	background: var(--fade-uikit-white);
-}
-
-.black-fill {
-	color: var(--fade-uikit-white);
-	background: var(--fade-uikit-black-soft);
 }
 
 /* Акцентные цвета */

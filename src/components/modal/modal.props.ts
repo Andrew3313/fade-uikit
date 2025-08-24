@@ -1,7 +1,13 @@
-import type { TPosition } from '@/lib'
+import type { TPosition, Values } from '@/lib'
+
+export const ModalVariants = {
+	DEFAULT: 'default',
+	GHOST: 'ghost'
+} as const
+
+export type TModalVariant = Values<typeof ModalVariants>
 
 export type TModalSize = 'sm' | 'md' | 'lg' | 'full' | 'content'
-
 export type TModalSlideFrom = 'center' | 'top' | 'bottom' | 'left' | 'right'
 
 export type TCrossPosition =
@@ -19,6 +25,7 @@ export interface IModalProps {
 	children: React.ReactNode
 	isOpen: boolean
 	onClose: () => void
+	variant?: TModalVariant
 	position?: TPosition
 	size?: TModalSize
 	slideFrom?: TModalSlideFrom

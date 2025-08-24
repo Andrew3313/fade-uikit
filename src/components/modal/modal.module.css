@@ -5,20 +5,23 @@
 	padding: 1.7rem 1.5rem;
 	cursor: default;
 	border-radius: var(--fade-uikit-radius-md);
-	background: var(--fade-uikit-gradient-component);
 	box-shadow: var(--fade-uikit-shadow-sm);
+	background: var(--fade-uikit-gradient-base);
 	color: var(--fade-uikit-white);
 	font-size: 1.6rem;
 	font-weight: 200;
 	max-height: 80vh;
 	z-index: var(--fade-uikit-modal-z-index);
-
 	will-change: transform, opacity;
 	opacity: 0;
 	transform: scale(0.95);
 	transition:
 		transform 0.3s ease,
 		opacity 0.3s ease;
+}
+
+.ghost {
+	background: var(--fade-uikit-gradient-component);
 }
 
 .content-wrapper {

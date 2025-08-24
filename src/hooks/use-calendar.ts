@@ -17,14 +17,16 @@ interface IUseCalendarParams {
 	firstWeekDayNumber?: number
 }
 
+const DAYS_IN_WEEK = 7
+
 export function useCalendar({
 	selectedDate: date,
 	locale = 'default',
 	intervalDirection = 'both',
-	firstWeekDayNumber = 2,
+	firstWeekDayNumber = 2, // С понедельника
 	range = 10
 }: IUseCalendarParams) {
-	const [mode, setMode] = useState<'days' | 'months' | 'years'>('days')
+	const [mode, setMode] = useState<'days' | 'months'>('days')
 
 	const [selectedDay, setSelectedDay] = useState(createDate({ date }))
 	const [selectedMonth, setSelectedMonth] = useState(
@@ -34,10 +36,10 @@ export function useCalendar({
 		})
 	)
 	const [selectedYear, setSelectedYear] = useState(selectedDay.year)
+
+	const baseYear = useMemo(() => new Date(date).getFullYear(), [date])
 	const [selectedYearsInterval, setSelectedYearsInterval] = useState(
-		getYearsInterval(selectedDay.year, range, {
-			direction: intervalDirection
-		})
+		getYearsInterval(baseYear, range, { direction: intervalDirection })
 	)
 
 	const monthsInfo = useMemo(() => getMonthsInfo(locale), [locale])
@@ -46,14 +48,11 @@ export function useCalendar({
 		[firstWeekDayNumber, locale]
 	)
 
-	const days = useMemo(
-		() => selectedMonth.createMonthDays(),
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[selectedMonth, selectedYear]
-	)
+	const days = useMemo(() => selectedMonth.createMonthDays(), [selectedMonth])
 
-	// Строим календарную сетку
 	const calendarDays = useMemo(() => {
+		if (!days.length) return []
+
 		const monthNumberOfDays = getMonthNumberOfDays(
 			selectedMonth.monthIndex,
 			selectedYear
@@ -70,48 +69,46 @@ export function useCalendar({
 		}).createMonthDays()
 
 		const firstDay = days[0]
-		const lastDay = days[monthNumberOfDays - 1]
+		const lastDay = days[monthNumberOfDays - 1] || days[days.length - 1]
 
 		const shiftIndex = firstWeekDayNumber - 1
 
-		// Сколько дней взять слева из предыдущего месяца, чтобы неделя начиналась с firstWeekDayNumber
 		const numberOfPrevDays =
 			firstDay.dayNumberInWeek - 1 - shiftIndex < 0
-				? 7 - (firstWeekDayNumber - firstDay.dayNumberInWeek)
+				? DAYS_IN_WEEK - (firstWeekDayNumber - firstDay.dayNumberInWeek)
 				: firstDay.dayNumberInWeek - 1 - shiftIndex
 
-		// Сколько дней взять справа из следующего месяца, чтобы последняя неделя была полной
 		const numberOfNextDays =
-			7 - lastDay.dayNumberInWeek + shiftIndex > 6
-				? 7 - lastDay.dayNumberInWeek - (7 - shiftIndex)
-				: 7 - lastDay.dayNumberInWeek + shiftIndex
+			DAYS_IN_WEEK - lastDay.dayNumberInWeek + shiftIndex > 6
+				? DAYS_IN_WEEK -
+					lastDay.dayNumberInWeek -
+					(DAYS_IN_WEEK - shiftIndex)
+				: DAYS_IN_WEEK - lastDay.dayNumberInWeek + shiftIndex
 
 		const totalCalendarDays =
 			days.length + numberOfPrevDays + numberOfNextDays
-
-		// Склеиваем массив: [конец предыдущего месяца] + [дни месяца] + [начало следующего месяца]
 		const result = []
 
-		// Добивка слева
-		for (let i = 0; i < numberOfPrevDays; i += 1) {
+		// Дни предыдущего месяца
+		for (let i = 0; i < numberOfPrevDays; i++) {
 			const inverted = numberOfPrevDays - i
 			result[i] = prevMonthDays[prevMonthDays.length - inverted]
 		}
 
-		// Дни месяца
+		// Дни текущего месяца
 		for (
 			let i = numberOfPrevDays;
 			i < totalCalendarDays - numberOfNextDays;
-			i += 1
+			i++
 		) {
 			result[i] = days[i - numberOfPrevDays]
 		}
 
-		// Добивка справа
+		// Дни следующего месяца
 		for (
 			let i = totalCalendarDays - numberOfNextDays;
 			i < totalCalendarDays;
-			i += 1
+			i++
 		) {
 			result[i] = nextMonthDays[i - totalCalendarDays + numberOfNextDays]
 		}
@@ -128,30 +125,12 @@ export function useCalendar({
 	const onClickArrow = (direction: 'right' | 'left') => {
 		const delta = direction === 'left' ? -1 : 1
 
-		if (mode === 'years') {
-			const newStartYear =
-				selectedYearsInterval[0] + delta * selectedYearsInterval.length
-
-			setSelectedYearsInterval(
-				getYearsInterval(newStartYear, range, {
-					direction: intervalDirection
-				})
-			)
-
-			return
-		}
+		const minYear = selectedYearsInterval[0]
+		const maxYear = selectedYearsInterval[selectedYearsInterval.length - 1]
 
 		if (mode === 'months') {
 			const newYear = selectedYear + delta
-
-			if (!selectedYearsInterval.includes(newYear)) {
-				setSelectedYearsInterval(
-					getYearsInterval(newYear, range, {
-						direction: intervalDirection
-					})
-				)
-			}
-
+			if (newYear < minYear || newYear > maxYear) return
 			setSelectedYear(newYear)
 			return
 		}
@@ -168,16 +147,9 @@ export function useCalendar({
 				newYear += 1
 			}
 
-			if (!selectedYearsInterval.includes(newYear)) {
-				setSelectedYearsInterval(
-					getYearsInterval(newYear, range, {
-						direction: intervalDirection
-					})
-				)
-			}
+			if (newYear < minYear || newYear > maxYear) return
 
 			setSelectedYear(newYear)
-
 			setSelectedMonth(
 				createMonth({ date: new Date(newYear, newMonthIndex), locale })
 			)
@@ -187,6 +159,13 @@ export function useCalendar({
 	const setSelectedMonthByIndex = (monthIndex: number) => {
 		setSelectedMonth(
 			createMonth({ date: new Date(selectedYear, monthIndex), locale })
+		)
+	}
+
+	// Пересчёт интервала лет только от базового года
+	const updateYearsInterval = () => {
+		setSelectedYearsInterval(
+			getYearsInterval(baseYear, range, { direction: intervalDirection })
 		)
 	}
 
@@ -207,7 +186,7 @@ export function useCalendar({
 			setSelectedDay,
 			setSelectedMonthByIndex,
 			setSelectedYear,
-			setSelectedYearsInterval
+			setSelectedYearsInterval: updateYearsInterval
 		}
 	}
 }
