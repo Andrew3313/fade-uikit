@@ -1,7 +1,7 @@
 {
 	"name": "fade-uikit",
 	"private": false,
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"type": "module",
 	"description": "UI kit based on React and Vite",
 	"author": {
