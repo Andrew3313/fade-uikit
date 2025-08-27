@@ -75,7 +75,11 @@ export function Modal({
 						</button>
 					)}
 
-					<div className={cn(styles.content, {}, [contentClassName])}>
+					<div
+						className={cn(styles['content-wrapper'], {}, [
+							contentClassName
+						])}
+					>
 						{children}
 					</div>
 				</div>
