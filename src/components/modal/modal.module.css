@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	padding: 1.7rem 1.5rem;
 	cursor: default;
 	border-radius: var(--fade-uikit-radius-md);
 	box-shadow: var(--fade-uikit-shadow-sm);

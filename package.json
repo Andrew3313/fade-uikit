@@ -8,6 +8,10 @@
 		"name": "Andrew3313",
 		"email": "andystep333@gmail.com"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Andrew3313/fade-uikit"
+	},
 	"license": "MIT",
 	"files": [
 		"dist"
