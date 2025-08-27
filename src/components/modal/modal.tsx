@@ -28,6 +28,7 @@ export function Modal({
 	crossSize,
 	lazy,
 	crossClassName,
+	contentClassName,
 	className
 }: IModalProps) {
 	const { close, isClosing, isMounted, modalRef } = useModal({
@@ -74,7 +75,9 @@ export function Modal({
 						</button>
 					)}
 
-					<div className={styles['content-wrapper']}>{children}</div>
+					<div className={cn(styles.content, {}, [contentClassName])}>
+						{children}
+					</div>
 				</div>
 			</Overlay>
 		</Portal>

@@ -34,6 +34,7 @@ export interface IModalProps {
 	showCross?: boolean
 	crossPosition?: TCrossPosition
 	crossSize?: number
+	contentClassName?: string
 	crossClassName?: string
 	className?: string
 }
