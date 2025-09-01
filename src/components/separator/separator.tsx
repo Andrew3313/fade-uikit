@@ -8,6 +8,7 @@ export function Separator({
 	size = 'md',
 	accentColor = AccentColors.BLUE,
 	accent = false,
+	defaultBackground,
 	className,
 	...props
 }: ISeparatorProps) {
@@ -21,6 +22,11 @@ export function Separator({
 				},
 				[styles[size], styles[direction], className]
 			)}
+			style={
+				{
+					'--default-background': defaultBackground
+				} as React.CSSProperties
+			}
 			{...props}
 		/>
 	)

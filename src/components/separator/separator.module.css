@@ -1,5 +1,5 @@
 .separator {
-	background: var(--fade-uikit-gradient-base);
+	background: var(--default-background, var(--fade-uikit-gradient-base));
 }
 
 .separator.ghost {

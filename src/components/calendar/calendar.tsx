@@ -86,8 +86,7 @@ export function Calendar({
 				)}
 
 				<Separator
-					accent
-					accentColor={accentColor}
+					defaultBackground='var(--fade-uikit-white-soft)'
 					direction='horizontal'
 					size='sm'
 				/>
@@ -221,8 +220,7 @@ export function Calendar({
 			{showFooter && (
 				<div className={styles.footer}>
 					<Separator
-						accent
-						accentColor={accentColor}
+						defaultBackground='var(--fade-uikit-white-soft)'
 						direction='horizontal'
 						size='sm'
 					/>

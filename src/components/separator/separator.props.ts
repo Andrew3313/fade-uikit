@@ -16,5 +16,6 @@ export interface ISeparatorProps extends React.HTMLAttributes<HTMLDivElement> {
 	size?: TSeparatorSize
 	accentColor?: TAccentColor
 	accent?: boolean
+	defaultBackground?: string
 	className?: string
 }
