@@ -40,7 +40,6 @@ export function ScrollArea({
 			style={
 				{
 					gridTemplateColumns: areaSize,
-					color: 'inherit',
 					'--sb-gap': `${gap}px`,
 					'--sb-track-thickness': `${trackThickness}px`,
 					'--sb-track-color': trackColor,

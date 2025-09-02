@@ -23,6 +23,7 @@
 }
 
 .scroll-area {
+	color: inherit;
 	border-radius: var(--fade-uikit-radius-md);
 	display: grid;
 	grid-template-columns: 1fr;
