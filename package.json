@@ -79,5 +79,24 @@
 		"*.{ts,tsx}": [
 			"eslint --fix --report-unused-disable-directives --max-warnings=0"
 		]
-	}
+	},
+	"keywords": [
+		"react",
+		"typescript",
+		"ui-kit",
+		"component-library",
+		"hooks",
+		"reusable-components",
+		"design-system",
+		"css-modules",
+		"lightweight",
+		"zero-dependencies",
+		"frontend",
+		"web-components",
+		"responsive",
+		"modern-ui",
+		"storybook",
+		"nextjs-compatible",
+		"react-hooks"
+	]
 }
