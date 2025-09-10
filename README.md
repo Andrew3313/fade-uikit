@@ -34,3 +34,21 @@ You can install **fade-uikit** using your preferred package manager:
 - **yarn:** `yarn add fade-uikit`
 
 - **pnpm:** `pnpm add fade-uikit`
+
+## Getting Started
+
+1. **Import the library styles** at the root of your project (e.g., in `index.tsx` or `App.tsx`):
+
+```tsx
+import 'fade-uikit/styles.css'
+```
+
+2. **Import and use components** as usual:
+
+```tsx
+import { Button } from 'fade-uikit'
+
+export default function App() {
+	return <Button variant='outline'>Click me</Button>
+}
+```
