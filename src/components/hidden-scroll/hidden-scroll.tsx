@@ -10,6 +10,7 @@ export function HiddenScroll({
 	return (
 		<div
 			className={cn(styles['hidden-scroll'], {}, [className])}
+			tabIndex={-1}
 			{...props}
 		>
 			{children}

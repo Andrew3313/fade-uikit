@@ -83,6 +83,18 @@
 	background: var(--fade-uikit-white);
 }
 
+.yellow-fill {
+	background: var(--fade-uikit-yellow);
+}
+
+.violet-fill {
+	background: var(--fade-uikit-violet);
+}
+
+.bright-orange-fill {
+	background: var(--fade-uikit-bright-orange);
+}
+
 .transparent-fill {
 	color: inherit;
 	background: transparent;

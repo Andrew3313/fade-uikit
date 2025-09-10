@@ -20,7 +20,10 @@ const meta: Meta<typeof Badge> = {
 				'pink-fill',
 				'orange-fill',
 				'aqua-green-fill',
-				'transparent-fill'
+				'transparent-fill',
+				'violet-fill',
+				'bright-orange-fill',
+				'yellow-fill'
 			]
 		},
 		accentColor: {

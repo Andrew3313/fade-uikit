@@ -1,5 +1,3 @@
-'use client'
-
 import { ArrowIcon } from '../icons'
 import { Separator } from '../separator'
 import styles from './calendar.module.css'

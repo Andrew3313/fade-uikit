@@ -101,7 +101,7 @@
 	min-width: 4.7rem;
 	min-height: 4.7rem;
 	position: absolute;
-	z-index: 10;
+	z-index: var(--fade-uikit-z-index-sm);
 	cursor: pointer;
 }
 

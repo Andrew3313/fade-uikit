@@ -42,7 +42,7 @@
 }
 
 .button:focus-visible {
-	outline: 1px solid currentColor;
+	outline: 1px dashed currentColor;
 }
 
 /* Размеры */

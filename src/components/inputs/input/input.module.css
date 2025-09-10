@@ -19,16 +19,21 @@
 	filter: brightness(0.95);
 }
 
-.input:focus-visible {
-	outline: none;
-}
-
 .input:disabled {
 	cursor: not-allowed;
 	opacity: 0.65;
 }
 
+.input:focus-visible {
+	outline: none;
+}
+
+.input:focus::placeholder {
+	opacity: 0;
+}
+
 .input::placeholder {
+	transition: opacity 0.2s ease;
 	color: var(--placeholder-color, var(--fade-uikit-white-soft));
 }
 

@@ -8,7 +8,10 @@ export const Colors = {
 	ORANGE: 'orange',
 	AQUA_GREEN: 'aqua-green',
 	BLACK: 'black',
-	WHITE: 'white'
+	WHITE: 'white',
+	YELLOW: 'yellow',
+	VIOLET: 'violet',
+	BRIGHT_ORANGE: 'bright-orange'
 } as const
 
 export const AccentColors = {

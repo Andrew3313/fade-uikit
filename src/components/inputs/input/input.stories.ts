@@ -17,7 +17,9 @@ const meta: Meta<typeof Input> = {
 		}
 	},
 	args: {
-		placeholder: 'Placeholder'
+		placeholder: 'Placeholder',
+		placeholderColor: '#ccc',
+		caretColor: '#ccc'
 	}
 }
 

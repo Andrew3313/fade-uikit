@@ -1,0 +1,54 @@
+.autocomplete {
+	position: relative;
+	max-width: 37.7rem;
+}
+
+.input-wrapper {
+	position: relative;
+	border-radius: var(--fade-uikit-radius-md);
+}
+
+.ghost {
+	background: var(--fade-uikit-gradient-component);
+}
+
+.input {
+	position: relative;
+	padding: 1.7rem 8.1rem 1.7rem 3.4rem;
+	z-index: var(--fade-uikit-z-index-lg);
+	width: 100%;
+}
+
+.input.with-suggestions {
+	background: transparent;
+	box-shadow: none;
+}
+
+.clear-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border-radius: var(--fade-uikit-radius-sm);
+	border: none;
+	position: absolute;
+	min-width: 2rem;
+	min-height: 2rem;
+	top: 1.35rem;
+	right: 3.05rem;
+	z-index: var(--fade-uikit-z-index-xl);
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+
+.clear-button:hover {
+	opacity: 0.65;
+}
+
+.clear-button:focus {
+	outline: none;
+}
+
+.clear-button:focus-visible {
+	outline: 1px dashed currentColor;
+}

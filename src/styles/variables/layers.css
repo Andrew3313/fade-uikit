@@ -1,4 +1,11 @@
 :root {
+	--fade-uikit-z-index-sm: 110;
+	--fade-uikit-z-index-md: 120;
+	--fade-uikit-z-index-lg: 130;
+	--fade-uikit-z-index-xl: 140;
+
 	--fade-uikit-overlay-z-index: 1000;
-	--fade-uikit-modal-z-index: 1001;
+	--fade-uikit-modal-z-index: 1010;
+	--fade-uikit-toast-z-index: 1100;
+	--fade-uikit-topmost-z-index: 2000;
 }

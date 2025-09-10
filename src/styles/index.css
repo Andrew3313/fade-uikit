@@ -2,6 +2,7 @@
 @import url('./variables/layers.css');
 @import url('./variables/sizes.css');
 @import url('./variables/colors.css');
+@import url('./animations.css');
 
 html {
 	font-size: 62.5%;

@@ -1,0 +1,53 @@
+.suggestions-list {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	right: 0;
+	left: 0;
+	top: 0;
+	border-radius: var(--fade-uikit-radius-md);
+	z-index: var(--fade-uikit-z-index-md);
+	background: var(--fade-uikit-gradient-base);
+	box-shadow: var(--fade-uikit-shadow-lg);
+	list-style: none;
+	backdrop-filter: blur(20px);
+	max-height: 17.8rem;
+	padding: 4.7rem 3.4rem 1.7rem;
+	font-size: 1.6rem;
+	font-weight: 300;
+	transform-origin: top;
+	animation: dropDownMove 0.3s ease forwards;
+}
+
+.ghost {
+	background: var(--fade-uikit-gradient-component);
+}
+
+.wrapper {
+	flex: 1;
+	border-top: 1px solid var(--fade-uikit-gray-muted);
+}
+
+.suggestion-item {
+	cursor: pointer;
+}
+
+.suggestion-item:first {
+	border-top: 1px solid var(--fade-uikit-gray-muted);
+}
+
+.active {
+	background: var(--fade-uikit-gray-muted);
+}
+
+.suggestion-label {
+	width: 50%;
+	height: 100%;
+	padding: 1.55rem 0 1.45rem;
+	border-bottom: 1px solid var(--fade-uikit-gray-muted);
+	text-align: start;
+}
+
+.highlight {
+	color: var(--fade-uikit-blue-soft);
+}
