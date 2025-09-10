@@ -1,69 +1,36 @@
-# React + TypeScript + Vite
+# fade-uikit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**fade-uikit** is a lightweight and flexible UIkit for **React** and **TypeScript**.  
+It provides a collection of reusable components, hooks, and utilities to help you build modern and consistent interfaces faster.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Why use fade-uikit?
 
-## Expanding the ESLint configuration
+- ⚡ **Zero external UI dependencies** – everything is implemented from scratch.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🎨 **Styling with CSS Modules** – clean and scoped styles out of the box.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 📦 **Ready to use in any React project** – works wherever React is used.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- 🔒 **Type-safe** – fully written in TypeScript with well-defined props.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Documentation & Demo
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+You can **explore components, check available props, and play around with live examples** in our Storybook:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+👉 [Chromatic Storybook](https://www.chromatic.com/library?appId=68c1805f162fc51b0688cb07)
+
+---
+
+## Installation
+
+You can install **fade-uikit** using your preferred package manager:
+
+- **npm:** `npm install fade-uikit`
+
+- **yarn:** `yarn add fade-uikit`
+
+- **pnpm:** `pnpm add fade-uikit`
