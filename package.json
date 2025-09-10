@@ -3,7 +3,7 @@
 	"private": false,
 	"version": "1.0.10",
 	"type": "module",
-	"description": "UI kit based on React and Vite",
+	"description": "Reusable components, hooks, and utilities for React + TypeScript.",
 	"author": {
 		"name": "Andrew3313",
 		"email": "andystep333@gmail.com"
@@ -83,20 +83,8 @@
 	"keywords": [
 		"react",
 		"typescript",
-		"ui-kit",
+		"fade-uikit",
 		"component-library",
-		"hooks",
-		"reusable-components",
-		"design-system",
-		"css-modules",
-		"lightweight",
-		"zero-dependencies",
-		"frontend",
-		"web-components",
-		"responsive",
-		"modern-ui",
-		"storybook",
-		"nextjs-compatible",
-		"react-hooks"
+		"ui-kit"
 	]
 }
