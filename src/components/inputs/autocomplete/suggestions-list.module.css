@@ -32,7 +32,7 @@
 	cursor: pointer;
 }
 
-.suggestion-item:first {
+.suggestion-item:first-child {
 	border-top: 1px solid var(--fade-uikit-gray-muted);
 }
 
