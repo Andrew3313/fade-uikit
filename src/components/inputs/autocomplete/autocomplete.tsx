@@ -1,3 +1,5 @@
+'use client'
+
 import { Input } from '../input'
 import { InputVariants } from '../input/input.props'
 import styles from './autocomplete.module.css'

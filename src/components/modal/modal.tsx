@@ -1,3 +1,5 @@
+'use client'
+
 import { CrossIcon } from '../icons'
 import { Overlay } from '../overlay'
 import { Portal } from '../portal'

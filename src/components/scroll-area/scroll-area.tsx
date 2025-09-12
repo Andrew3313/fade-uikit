@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './scroll-area.module.css'
 import type { IScrollAreaProps } from './scroll-area.props'
 import { useCustomScrollbar } from '@/hooks'
