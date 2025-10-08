@@ -36,6 +36,7 @@ export interface IModalProps {
 	crossSize?: number
 	contentClassName?: string
 	crossClassName?: string
+	overlayClassName?: string
 	className?: string
 }
 

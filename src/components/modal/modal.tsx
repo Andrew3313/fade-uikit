@@ -29,6 +29,7 @@ export function Modal({
 	lazy,
 	crossClassName,
 	contentClassName,
+	overlayClassName,
 	className
 }: IModalProps) {
 	const { close, isClosing, isMounted, modalRef } = useModal({
@@ -45,7 +46,11 @@ export function Modal({
 
 	return (
 		<Portal element={document.getElementById('modals') ?? document.body}>
-			<Overlay onClick={close} position={position}>
+			<Overlay
+				className={overlayClassName}
+				onClick={close}
+				position={position}
+			>
 				<div
 					ref={modalRef}
 					role='dialog'
