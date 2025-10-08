@@ -19,6 +19,8 @@
 		transform 0.1s ease;
 	will-change: background-color, filter, border-color, border-width;
 	line-height: 100%;
+	appearance: none;
+	-webkit-appearance: none;
 	-webkit-backdrop-filter: blur(20px);
 }
 

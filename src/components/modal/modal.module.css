@@ -114,7 +114,7 @@
 }
 
 .cross:focus-visible {
-	outline: 1px solid #fff;
+	outline: 1px dashed #fff;
 }
 
 .cross-top-right {

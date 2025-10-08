@@ -17,7 +17,7 @@ const ANIMATION_DELAY = 300
 export function Modal({
 	children,
 	onClose,
-	isOpen = false,
+	isOpen,
 	variant = ModalVariants.DEFAULT,
 	position = Positions.CENTER,
 	size = 'md',
