@@ -21,8 +21,12 @@ export type TCrossPosition =
 	| 'right-bottom'
 	| 'inside'
 
+export type TModalChildren =
+	| React.ReactNode
+	| ((ctx: { close: () => void }) => React.ReactNode)
+
 export interface IModalProps {
-	children: React.ReactNode
+	children: TModalChildren
 	isOpen: boolean
 	onClose: () => void
 	onCloseAnimationComplete?: () => void

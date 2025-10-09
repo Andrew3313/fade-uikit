@@ -87,7 +87,9 @@ export function Modal({
 							contentClassName
 						])}
 					>
-						{children}
+						{typeof children === 'function'
+							? children({ close })
+							: children}
 					</div>
 				</div>
 			</Overlay>
