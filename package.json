@@ -1,7 +1,7 @@
 {
 	"name": "fade-uikit",
 	"private": false,
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"type": "module",
 	"description": "Reusable components, hooks, and utilities for React + TypeScript.",
 	"author": {
