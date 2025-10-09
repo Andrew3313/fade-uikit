@@ -25,6 +25,7 @@ export function Modal({
 	ariaLabel = 'Modal window',
 	crossPosition = 'inside',
 	showCross = true,
+	onCloseAnimationComplete,
 	crossSize,
 	lazy,
 	crossClassName,
@@ -33,9 +34,10 @@ export function Modal({
 	className
 }: IModalProps) {
 	const { close, isClosing, isMounted, modalRef } = useModal({
+		isOpen,
 		animationDelay: ANIMATION_DELAY,
 		onClose,
-		isOpen
+		onCloseAnimationComplete
 	})
 
 	if ((lazy && !isMounted) || !isOpen) {

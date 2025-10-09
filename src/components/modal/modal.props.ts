@@ -25,6 +25,7 @@ export interface IModalProps {
 	children: React.ReactNode
 	isOpen: boolean
 	onClose: () => void
+	onCloseAnimationComplete?: () => void
 	variant?: TModalVariant
 	position?: TPosition
 	size?: TModalSize

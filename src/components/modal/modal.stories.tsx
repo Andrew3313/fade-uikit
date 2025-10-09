@@ -40,7 +40,8 @@ const meta: Meta<typeof Modal> = {
 		lazy: { control: false },
 		isOpen: { control: false },
 		onClose: { control: false },
-		children: { control: false }
+		children: { control: false },
+		onCloseAnimationComplete: { control: false }
 	},
 	args: {
 		size: 'md',
@@ -59,13 +60,22 @@ type ModalProps = ComponentProps<typeof Modal>
 const Template = (args: ModalProps) => {
 	const [isOpen, setIsOpen] = useState(false)
 
+	const handleCloseAnimationComplete = () => {
+		console.log('🎉 The modal closing animation is complete!')
+	}
+
 	return (
 		<>
 			<Button variant='ghost' onClick={() => setIsOpen(true)}>
 				Open Modal
 			</Button>
 
-			<Modal {...args} isOpen={isOpen} onClose={() => setIsOpen(false)}>
+			<Modal
+				{...args}
+				isOpen={isOpen}
+				onClose={() => setIsOpen(false)}
+				onCloseAnimationComplete={handleCloseAnimationComplete}
+			>
 				<Modal.Header>Modal Header</Modal.Header>
 				<Modal.Body>
 					<p>This is the body content of the modal.</p>

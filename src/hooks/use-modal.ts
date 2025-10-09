@@ -2,12 +2,18 @@ import { getFocusableElements, trapFocus } from '@/lib'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 interface IUseModalParams {
-	onClose?: () => void
-	isOpen?: boolean
 	animationDelay: number
+	isOpen?: boolean
+	onClose?: () => void
+	onCloseAnimationComplete?: () => void
 }
 
-export function useModal({ animationDelay, isOpen, onClose }: IUseModalParams) {
+export function useModal({
+	isOpen,
+	animationDelay,
+	onClose,
+	onCloseAnimationComplete
+}: IUseModalParams) {
 	const [isMounted, setIsMounted] = useState(false)
 	const [isClosing, setIsClosing] = useState(false)
 
@@ -25,9 +31,11 @@ export function useModal({ animationDelay, isOpen, onClose }: IUseModalParams) {
 
 				setIsMounted(false)
 				setIsClosing(false)
+
+				onCloseAnimationComplete?.()
 			}, animationDelay)
 		}
-	}, [onClose, animationDelay])
+	}, [onClose, animationDelay, onCloseAnimationComplete])
 
 	const onKeyDown = useCallback(
 		(e: KeyboardEvent) => {
