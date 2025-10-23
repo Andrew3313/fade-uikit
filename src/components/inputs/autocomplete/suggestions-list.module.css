@@ -1,3 +1,27 @@
+.blue-accent {
+	--accent-color: var(--fade-uikit-gradient-blue);
+}
+
+.green-accent {
+	--accent-color: var(--fade-uikit-gradient-green);
+}
+
+.red-accent {
+	--accent-color: var(--fade-uikit-gradient-red);
+}
+
+.yellow-accent {
+	--accent-color: var(--fade-uikit-gradient-yellow);
+}
+
+.purple-accent {
+	--accent-color: var(--fade-uikit-gradient-purple);
+}
+
+.pink-accent {
+	--accent-color: var(--fade-uikit-gradient-pink);
+}
+
 .suggestions-list {
 	position: absolute;
 	display: flex;
@@ -50,4 +74,11 @@
 
 .highlight {
 	color: var(--fade-uikit-blue-soft);
+}
+
+.highlight.text-accent {
+	background: var(--accent-color, var(--fade-uikit-gradient-blue));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 }

@@ -1,6 +1,7 @@
 import { InputVariants } from '../input/input.props'
 import { Autocomplete } from './autocomplete'
 import type { IAutocompleteOption } from './autocomplete.props'
+import { AccentColors } from '@/lib'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const staticOptions: IAutocompleteOption[] = [
@@ -21,6 +22,10 @@ const meta: Meta<typeof Autocomplete> = {
 		variant: {
 			control: 'select',
 			options: Object.values(InputVariants)
+		},
+		accentColor: {
+			control: 'select',
+			options: Object.values(AccentColors)
 		}
 	},
 	args: {
@@ -47,5 +52,12 @@ export const Ghost: Story = {
 export const WithDefaultValue: Story = {
 	args: {
 		defaultValue: 'Соколова Ю. С.'
+	}
+}
+
+export const Accent: Story = {
+	args: {
+		accent: true,
+		accentColor: 'yellow-accent'
 	}
 }

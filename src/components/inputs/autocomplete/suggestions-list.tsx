@@ -2,7 +2,7 @@ import { HiddenScroll } from '../../hidden-scroll'
 import { InputVariants, type TInputVariant } from '../input/input.props'
 import type { IAutocompleteOption } from './autocomplete.props'
 import styles from './suggestions-list.module.css'
-import { cn } from '@/lib'
+import { AccentColors, cn, type TAccentColor } from '@/lib'
 import { useEffect, useRef } from 'react'
 
 interface ISuggestionsListProps {
@@ -11,9 +11,11 @@ interface ISuggestionsListProps {
 	highlightedIndex: number
 	onSuggestionClick: (item: IAutocompleteOption) => void
 	variant: TInputVariant
+	accentColor?: TAccentColor
+	accent?: boolean
 }
 
-function highlightMatch(text: string, query: string) {
+function highlightMatch(text: string, query: string, accent: boolean = false) {
 	if (!query.trim()) return text
 
 	const regex = new RegExp(`(${query})`, 'gi')
@@ -21,7 +23,12 @@ function highlightMatch(text: string, query: string) {
 
 	return parts.map((part, index) =>
 		regex.test(part) ? (
-			<span key={index} className={styles.highlight}>
+			<span
+				key={index}
+				className={cn(styles.highlight, {
+					[styles['text-accent']]: accent
+				})}
+			>
 				{part}
 			</span>
 		) : (
@@ -35,7 +42,9 @@ export function SuggestionsList({
 	highlight,
 	highlightedIndex,
 	onSuggestionClick,
-	variant
+	variant,
+	accentColor = AccentColors.BLUE,
+	accent = false
 }: ISuggestionsListProps) {
 	const itemRefs = useRef<(HTMLLIElement | null)[]>([])
 
@@ -51,7 +60,8 @@ export function SuggestionsList({
 	return (
 		<ul
 			className={cn(styles['suggestions-list'], {
-				[styles.ghost]: variant === InputVariants.GHOST
+				[styles.ghost]: variant === InputVariants.GHOST,
+				[styles[accentColor]]: accent
 			})}
 			role='listbox'
 		>
@@ -73,7 +83,11 @@ export function SuggestionsList({
 						}}
 					>
 						<div className={styles['suggestion-label']}>
-							{highlightMatch(suggestion.label, highlight)}
+							{highlightMatch(
+								suggestion.label,
+								highlight,
+								accent
+							)}
 						</div>
 					</li>
 				))}

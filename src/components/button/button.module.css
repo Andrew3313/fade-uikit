@@ -111,7 +111,7 @@
 }
 
 /* Акцентные цвета */
-[class*='-accent'] {
+.button [class*='-accent'] {
 	color: var(--fade-uikit-white);
 }
 

@@ -9,13 +9,15 @@ import type {
 } from './autocomplete.props'
 import { SuggestionsList } from './suggestions-list'
 import { CrossIcon } from '@/components/icons'
-import { cn } from '@/lib'
+import { AccentColors, cn } from '@/lib'
 import { useEffect, useId, useRef, useState } from 'react'
 
 export function Autocomplete({
 	data,
 	variant = InputVariants.DEFAULT,
+	accentColor = AccentColors.BLUE,
 	minLength = 2,
+	accent = false,
 	onSelect,
 	onChange,
 	defaultValue,
@@ -185,6 +187,8 @@ export function Autocomplete({
 					highlightedIndex={highlightedIndex}
 					onSuggestionClick={handleSelect}
 					variant={variant}
+					accentColor={accentColor}
+					accent={accent}
 				/>
 			)}
 		</div>
