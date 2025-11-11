@@ -3,14 +3,12 @@
 import { Input } from '../input'
 import { InputVariants } from '../input/input.props'
 import styles from './autocomplete.module.css'
-import type {
-	IAutocompleteOption,
-	IAutocompleteProps
-} from './autocomplete.props'
+import type { IAutocompleteProps } from './autocomplete.props'
 import { SuggestionsList } from './suggestions-list'
 import { CrossIcon } from '@/components/icons'
-import { AccentColors, cn } from '@/lib'
-import { useEffect, useId, useRef, useState } from 'react'
+import { useOnClickOutside } from '@/hooks'
+import { AccentColors, cn, type IOption, type TOptionsData } from '@/lib'
+import { useId, useRef, useState } from 'react'
 
 export function Autocomplete({
 	data,
@@ -27,7 +25,7 @@ export function Autocomplete({
 	...inputProps
 }: IAutocompleteProps) {
 	const [inputValue, setInputValue] = useState(defaultValue || '')
-	const [suggestions, setSuggestions] = useState<IAutocompleteOption[]>([])
+	const [suggestions, setSuggestions] = useState<TOptionsData>([])
 
 	const [focused, setFocused] = useState(false)
 	const [highlightedIndex, setHighlightedIndex] = useState<number>(-1)
@@ -65,7 +63,7 @@ export function Autocomplete({
 		setHighlightedIndex(-1)
 	}
 
-	const handleSelect = (item: IAutocompleteOption) => {
+	const handleSelect = (item: IOption) => {
 		setInputValue(item.label)
 		onSelect?.(item)
 		setSuggestions([])
@@ -122,23 +120,11 @@ export function Autocomplete({
 		}
 	}
 
-	useEffect(() => {
-		const handleClickOutside = (e: MouseEvent) => {
-			if (
-				containerRef.current &&
-				!containerRef.current.contains(e.target as Node)
-			) {
-				setFocused(false)
-				setSuggestions([])
+	useOnClickOutside(containerRef, () => {
+		setFocused(false)
+		setSuggestions([])
 
-				inputRef.current?.blur()
-			}
-		}
-
-		document.addEventListener('mousedown', handleClickOutside)
-
-		return () =>
-			document.removeEventListener('mousedown', handleClickOutside)
+		inputRef.current?.blur()
 	}, [])
 
 	return (

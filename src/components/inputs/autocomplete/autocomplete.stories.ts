@@ -1,10 +1,9 @@
 import { InputVariants } from '../input/input.props'
 import { Autocomplete } from './autocomplete'
-import type { IAutocompleteOption } from './autocomplete.props'
-import { AccentColors } from '@/lib'
+import { AccentColors, type TOptionsData } from '@/lib'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const staticOptions: IAutocompleteOption[] = [
+const staticOptions: TOptionsData = [
 	{ label: 'Соколова Ю. С.', value: 'Соколова Ю. С.' },
 	{ label: 'Соколов А. А.', value: 'Соколов А. А.' },
 	{ label: 'Соколов А. В.', value: 'Соколов А. В.' },

@@ -1,15 +1,20 @@
 import { HiddenScroll } from '../../hidden-scroll'
 import { InputVariants, type TInputVariant } from '../input/input.props'
-import type { IAutocompleteOption } from './autocomplete.props'
 import styles from './suggestions-list.module.css'
-import { AccentColors, cn, type TAccentColor } from '@/lib'
+import {
+	AccentColors,
+	cn,
+	type IOption,
+	type TAccentColor,
+	type TOptionsData
+} from '@/lib'
 import { useEffect, useRef } from 'react'
 
 interface ISuggestionsListProps {
-	suggestions: IAutocompleteOption[]
+	suggestions: TOptionsData
 	highlight: string
 	highlightedIndex: number
-	onSuggestionClick: (item: IAutocompleteOption) => void
+	onSuggestionClick: (item: IOption) => void
 	variant: TInputVariant
 	accentColor?: TAccentColor
 	accent?: boolean

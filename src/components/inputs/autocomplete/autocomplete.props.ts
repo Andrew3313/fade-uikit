@@ -1,16 +1,11 @@
 import type { IInputProps } from '../input/input.props'
-import type { TAccentColor } from '@/lib'
-
-export interface IAutocompleteOption {
-	label: string
-	value: string
-}
+import type { IOption, TAccentColor, TOptionsData } from '@/lib'
 
 export interface IAutocompleteProps
 	extends Omit<IInputProps, 'onChange' | 'onSelect' | 'className' | 'type'> {
-	data: IAutocompleteOption[]
+	data: TOptionsData
 	minLength?: number
-	onSelect?: (item: IAutocompleteOption) => void
+	onSelect?: (item: IOption) => void
 	onChange?: (value: string) => void
 	accentColor?: TAccentColor
 	accent?: boolean
